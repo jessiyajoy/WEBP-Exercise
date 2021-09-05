@@ -1,3 +1,10 @@
 body {
     margin: 0;
 }
+
+.two-list-container {
+    /* For Landscape Devices */
+    width: 60%;
+    margin: auto;
+    /* Compatibility for Portrait Devices */
+}
