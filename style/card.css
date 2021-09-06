@@ -50,7 +50,7 @@
 .basic-card-content {
     color: rgb(83, 83, 83);
     
-    padding-top: 0.5rem;
+    padding-top: 0.8rem;
     padding-left: 1.2rem;
     padding-right: 1.5rem;
     padding-bottom: 0.2rem;
@@ -95,8 +95,31 @@
 }
 
 .basic-card-content__heading {
-    margin-top: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
+}
+
+.basic-card-collapse-button {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: #e6e6e6;
+    font-size: 2rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    width: 50%;
+    color: #08c8da;
+    transition: 0.3s ease-out;
+}
+
+.basic-card-collapse-button:hover {
+    color: #a7a7a7;
+}
+
+[data-toggle="collapse"].collapsed .if-not-collapsed {
+    display: none;
+}
+[data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+display: none;
 }
