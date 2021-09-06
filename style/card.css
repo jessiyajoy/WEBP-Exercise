@@ -2,10 +2,10 @@
     background-color: white;
     color: rgb(56, 56, 56);
 
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
 
     margin: 10px;
-    border-radius: 0.5rem;
+    border-radius: 0.4rem;
 
     box-sizing: border-box;
 
@@ -24,9 +24,8 @@
     color: rgb(59, 59, 59);
     background-color: #e5e5e5;
 
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    border-bottom: 2px dotted #acacac;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
 
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -38,7 +37,7 @@
     display: flex;
     flex-direction: row;
 
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -51,6 +50,7 @@
 .basic-card-content {
     color: rgb(83, 83, 83);
     
+    padding-top: 0.5rem;
     padding-left: 1.2rem;
     padding-right: 1.5rem;
     padding-bottom: 0.2rem;
@@ -61,16 +61,42 @@
 }
 
 .basic-card-header__title {
-    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
     font-weight: 300;
+
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
 }
 
 .basic-card-header__time {
-    font-weight: 500;
-    color: #0097a5;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    font-weight: 600;
+    background-color: #08c8da;
+    color: white;
+    font-size: 0.8rem;
+
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 1.8rem;
+   
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.2);
+
+    transition: 0.3s;
 }
 
 
 .basic-card-header__usr-image {
    width: 4rem;
+}
+
+.basic-card-content__heading {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
 }
