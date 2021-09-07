@@ -8,3 +8,75 @@ body {
     margin: auto;
     /* Compatibility for Portrait Devices */
 }
+
+/* COURSE INTRO CARD */
+.card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+
+}
+
+
+.card__link,
+.card__exit,
+.card__icon {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.card__link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+}
+
+.card__link:hover::after {
+    width: 10%;
+}
+
+.card__icon {
+    font-size: 30px;
+    margin: 1rem;
+}
+
+.card__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.card__description {
+    color: rgb(255, 255, 255);
+}
+
+.card__item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+.card__apply {
+    display: block;
+}
+
+/* CARD BACKGROUNDS */
+.card-1 {
+    background: radial-gradient(#1fe4f5, #3fbafe);
+}
