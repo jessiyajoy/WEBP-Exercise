@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style/navBarFooter.css" />
+    <link rel="stylesheet" href="style/registerStyle.css" />
+   
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+    <header>
+        <a id="logo" href="#">LMS</a>
+        <!-- <img class="logo" src="logo.png" alt="logo"> -->
+        <nav>
+            <ul class="nav__links-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="signIn.html#"><button>Login</button></a>
+        <!-- <a class="cta" href="#"><button>Login</button></a> -->
+    </header>
+    
+    <div class="container">
+		<div class="text">
+			<h1>Sign Up</h1>
+			<p>Gain access to new content everyday!</p>
+		</div>
+		<div class="user-input">
+            <div class="input">
+                
+				<input type="text" name="name" id="name" required />
+                <label for="name">Name</label>
+				
+			</div>
+			<div class="input">
+				<input type="text" name="email" id="email" required />
+                <label for="email">Email</label>
+				
+			</div>
+			<div class="input">
+				<input type="password" name="password" id="password" required />
+				<label for="password">Password</label>
+			</div>
+            <div class="input">
+				<input type="password" name="confirm-password" id="confirm-password" required />
+				<label for="confirm-password">Confirm Password</label>
+				
+			</div>
+		</div>
+
+        <p class="terms"> 
+            By registering you agree to our <a href="#" class="privacy-policy">Privacy Policy</a>.
+        </p>
+        
+		<button>Register</button>
+        <br>
+        
+		<p class="join-link"> 
+            Already registered? <a href="signIn.html#" class="join-now">Sign In</a>
+		</p>
+	</div>
+    <div class="footer-needed-div"></div>
+    <footer>
+        <!-- Footer legal -->
+        <section class="ft-legal">
+          <ul class="ft-legal-list">
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>&copy; 2021 Learning Management System</li>
+          </ul>
+        </section>
+      </footer>
+    
+</body>
+</html>
