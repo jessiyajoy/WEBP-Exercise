@@ -6,6 +6,7 @@ body {
     /* For Landscape Devices */
     width: 45%;
     margin: auto;
+    margin-bottom: 4rem;
     /* Compatibility for Portrait Devices */
 }
 
@@ -24,9 +25,7 @@ body {
     border-radius: 10px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     transition: all 0.2s;
-
 }
-
 
 .card__link,
 .card__exit,
@@ -57,7 +56,7 @@ body {
 }
 
 .card__title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 2.5rem;
     color: #ffffff;
 }
@@ -67,7 +66,7 @@ body {
 }
 
 .card__item-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 1.5rem;
     color: rgb(255, 255, 255);
 }
@@ -81,6 +80,21 @@ body {
     background: radial-gradient(#1fe4f5, #03a9b8);
 }
 
+.card-2 {
+    background: radial-gradient(#fbc1cc, #fa99b2);
+}
+
+.card-3 {
+    background: radial-gradient(#76b2fe, #b69efe);
+}
+
+.card-4 {
+    background: radial-gradient(#60efbc, #58d5c9);
+}
+
+.card-5 {
+    background: radial-gradient(#1fe4f5, #3fbafe);
+}
 
 
 .course-sort-by-button {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Course-1 Page</title>
+    <title>Python Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,6 +25,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/43f9be8744.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="style/navBarFooter.css" />
     <link rel="stylesheet" href="/style/coursepage.css">
     <link rel="stylesheet" href="/style/cards-container.css">
     <link rel="stylesheet" href="/style/card.css">
@@ -32,6 +33,18 @@
 </head>
 
 <body>
+    <header>
+        <a id="logo" href="#">LMS</a>
+        <nav>
+            <ul class="nav__links-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="signIn.html#"><button>Login</button></a> -->
+    </header>
     <div class="two-list-container">
         <article class="course-intro">
             <section class="course-intro">
@@ -63,6 +76,60 @@
             <h1 class="card-container-title">
                 Course Reference Materials
             </h1>
+            <article class="basic-card">
+                <header class="basic-card-header">
+                    <h3 class="basic-card-header__title">
+                        Reference 1 : Python for Everybody
+                    </h3>
+                    <time class="basic-card-header__time">
+                        23 <br>
+                        Jun
+                    </time>
+                </header>
+                <div class="basic-card-content">
+                    <section class="basic-card-content__synopsis">
+                        <h3 class="basic-card-content__heading">
+                            Synopsis
+                        </h3>
+                        <p>
+                            Reference book - Python for Everybody <br>
+                        </p>
+                    </section>
+                    <section class="basic-card-content__due-date">
+                        <h3 class="basic-card-content__heading"> Due Date</h3>
+                        <time class="basic-card-content__info">
+                            No Due Date
+                        </time>
+                    </section>
+                    <section class="collapse" class="basic-card-content__collapsible-part"
+                        id="basic-card-content__collapsible-part0">
+                        <br>
+                        <section class="basic-card-content__description">
+                            <h3 class="basic-card-content__heading">
+                                Description
+                            </h3>
+                            <p>
+                                Data oriented approach - The overall book structure is to get to doing data analysis problems
+                                as quickly as possible and have a series of running examples and exercises about
+                                data analysis from the very beginning
+                            </p>
+                        </section>
+                        <section class="basic-card-content__articles">
+                            <h3 class="basic-card-content__heading">Articles</h3>
+                            <article>
+                                <a href="resources/Python for Everybody.pdf">Download Python For Everybody here</a>
+                            </article>
+                        </section>
+                    </section>
+                    <center>
+                        <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                            href="#basic-card-content__collapsible-part0">
+                            <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                            <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                        </a>
+                    </center>
+                </div>
+            </article>
             <article class="basic-card">
                 <header class="basic-card-header">
                     <h3 class="basic-card-header__title">
@@ -141,7 +208,7 @@
                             Synopsis
                         </h3>
                         <p>
-                            Introductory Assigment for Python <br>
+                            Assigment 2 - Variables and Simple if-else <br>
                         </p>
                     </section>
                     <section class="basic-card-content__due-date">
@@ -317,6 +384,18 @@
             </article>
         </section>
     </div>
+    <footer>
+        <!-- Footer legal -->
+        <section class="ft-legal">
+          <ul class="ft-legal-list">
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>&copy; 2021 Learning Management System</li>
+          </ul>
+        </section>
+      </footer>
 </body>
 
 </html>
