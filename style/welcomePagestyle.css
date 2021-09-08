@@ -1,0 +1,30 @@
+
+body {
+    /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
+  
+    background: url(images/img6.jpg);
+    background-size: cover;
+
+} 
+
+.welcomeText{
+    color: white;
+    text-align: center;
+    font-family: 'Lato';
+    padding-top: 0px;
+    margin-top: 250px;
+    padding-right: 20px;
+    font-weight: 700;
+	font-size: 4em;
+}
+.subText{
+    color: white;
+    text-align: center;
+    font-family: 'Lato';
+    padding-top: 0px;
+    padding-right: 20px;
+    font-weight: 500;
+	font-size: 2em;
+}

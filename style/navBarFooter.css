@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+    box-sizing: border-box;
+    /*font-family: ’Lato’, sans-serif; */
+    margin: 0; 
+    padding: 0;
+}
+#logo{
+    font-size: 75px;
+    font-weight: 800px;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+header li, a, button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%; 
+    background-color: #2980B9;
+}
+
+.nav__links-left, .nav__links-right{
+    list-style: none;
+}
+
+.nav__links-left li, .nav__links-right li{
+    display: inline-block;
+    padding: 0px 20px;
+    
+}
+
+.nav__links-left li a, .nav__links-right li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links-left li a:hover, .nav__links-right li a:hover {
+    background-color:#85C1E9;
+    color: black;
+    text-decoration: none;
+    padding: 20px 20px;
+    border:none;
+    border-radius: 50px;
+
+    /* color: hsl(193, 26%, 87%); */
+}
+
+header button{
+    margin-right: 20px;
+    padding: 9px 25px;
+    background-color: rgba(5, 5, 5,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover{
+    background-color: rgba(5,5,5,0.8);
+
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+footer {
+    background-color: #555;
+    color: #bbb;
+    line-height: 1.5;
+}
+footer a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 10px;
+}
+
+footer li{
+    color: #eee;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+} 
+.footer-needed-div {
+    flex: 1;    /* same as flex-grow: 1;*/
+}
+
+
+/*@media only screen and (min-width: 29.8125rem /*477px*//*) {/*
+   /* .ft-main {
+        justify-content: space-around;
+    }
+}
+@media only screen and (min-width: 77.5rem /*1240px*/ /*) {*/
+   /* .ft-main {
+        justify-content: space-evenly;
+    }
+}*/
+
+
+.ft-legal {
+    padding: 0.9375rem 1.875rem;
+    background-color: #333;
+}
+.ft-legal-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ft-legal-list li {
+    margin: 0.125rem 0.625rem;
+    white-space: nowrap;
+}
+/* one before the last child */
+.ft-legal-list li:nth-last-child(2) {
+    flex: 1;       /* same as flex-grow: 1; */
+}
