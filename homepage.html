@@ -3,13 +3,16 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/style/homepage.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
             integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
             crossorigin="anonymous"
         >
+        <link rel="stylesheet" href="/style/homepage.css">
         <title>Home Page</title>
     </head>
     <body>
@@ -22,25 +25,42 @@
         <h1>Courses</h1>
         <section class="courses-container">
             <div class="course-row">
-                <figure class="image-block">
-                    <img src="resources/html.jpeg" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>HTML</h3>
-                        <p>
-                            HTML is the foundation of all web pages.
-                            You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites. You will also be able to create HTML tables to present tabular data efficiently.
+                <figure class="course-card">
+                    <div class="card-left">
+                        <h3 class="course-card__title">
+                            HTML
+                        </h3>
+                        <p class="course-card__content">
+                            Learn about the skeleton for all websites!
                         </p>
+                        <h4>Course Instructor : Jane Doe</h4>
+                        <div class="course-category">
+                            <button id="web-design">
+                                Web Design
+                            </button>
+                            <button>
+                                Computer Science
+                            </button>
+                        </div>
                         <button>
                             Go to course
                         </button>
-                    </figcaption>
+                        <figcaption class="scroll-bar">
+                            <h3>HTML</h3>
+                            <p>
+                                HTML is the foundation of all web pages.
+                                In this course, you will learn all the common HTML tags used to structure HTML pages.
+                            </p>
+                        </figcaption>
+                    </div>
+                    <img src="resources/html.jpeg" alt="">
                 </figure>
-                <figure class="image-block">
+                <figure class="course-card">
                     <img src="resources/css.png" alt="">
                     <figcaption class="scroll-bar">
                         <h3>CSS</h3>
                         <p>
-                            With CSS, you can add color and background images and change the layout of your page — your web pages can feel like works of art!
+                            With CSS, you can add color and background images and change the layout of your page.
                             In this course, you will learn many aspects of styling web pages!
                         </p>
                         <button>
@@ -48,9 +68,7 @@
                         </button>
                     </figcaption>
                 </figure>
-            </div>
-            <div class="course-row">
-                <figure class="image-block">
+                <figure class="course-card">
                     <img src="resources/javascript.png" alt="">
                     <figcaption class="scroll-bar">
                         <h3>JAVASCRIPT</h3>
@@ -62,7 +80,9 @@
                         </button>
                     </figcaption>
                 </figure>
-                <figure class="image-block">
+            </div>
+            <div class="course-row">
+                <figure class="course-card">
                     <img src="resources/ajax.jpeg" alt="">
                     <figcaption class="scroll-bar">
                         <h3>AJAX</h3>
@@ -74,9 +94,7 @@
                         </button>
                     </figcaption>
                 </figure>
-            </div>
-            <div class="course-row">
-                <figure class="image-block">
+                <figure class="course-card">
                     <img src="resources/java.png" alt="">
                     <figcaption class="scroll-bar">
                         <h3>JAVA</h3>
@@ -89,7 +107,7 @@
                         </button>
                     </figcaption>
                 </figure>
-                <figure class="image-block">
+                <figure class="course-card">
                     <img src="resources/python.png" alt="">
                     <figcaption class="scroll-bar">
                         <h3>PYTHON</h3>
@@ -104,17 +122,12 @@
                 </figure>
             </div>
         </section>
-
         <!-- <div class="section">
             <h2>Title</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
-          </div>
-           -->
-          
-          
-          Resources
+        </div>-->
     </body>
 </html>
