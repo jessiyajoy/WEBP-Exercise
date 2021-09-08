@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 body {
 	margin: 0;
 	height: 100vh;
@@ -5,19 +7,14 @@ body {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	background: #E7E0C9;
-	font-family: "Roboto", Geneva, Tahoma, sans-serif;
+	/* justify-content: space-between; */
+	background: rgb(240, 236, 236);
+	/* font-family: 'Open Sans', sans-serif;	
 	font-size: 16px;
 	font-smooth: auto;
-	font-weight: 300;
+	font-weight: 300; */
 	line-height: 1.5;
 	color: rgb(14, 14, 14);
-}
-
-h1 {
-	margin: 3%;
-	color: #261b2c;
 }
 
 /* search bar */
@@ -56,13 +53,18 @@ h1 {
 }
 
 /* course cards */
-figure {
+.course-card {
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	width: 600px;
-	height: 300px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+
+	/* justify-content: space-between; */
+	width: 410px;
+	height: 260px;
 	border-radius: 10px;
 	/* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
 	box-shadow: 0 1px 3px rgba(238, 235, 235, 0.036), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -71,25 +73,27 @@ figure {
 	background: white;
 }
 
-figure:hover {
+.course-card:hover {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-figure:hover img {
+.course-card:hover img {
 	transform: scale(1.1);
 }
 
-figure:hover figcaption {
+.course-card figcaption:hover  {
 	top: 0;
 	border-top-left-radius: 0px;
 }
 
-figure figcaption button:hover {
-	background-color: #040a1d;
-	color: white;
+/* course card title */
+.course-card__title {
+	font-size: 1.8rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
 }
 
-figure h1 {
+/* .course-card h1 {
 	position: absolute;
 	top: 50px;
 	left: 20px;
@@ -99,20 +103,22 @@ figure h1 {
 	font-size: 60px;
 	font-weight: 100;
 	line-height: 1;
-}
+} */
 
-figure img {
+.course-card img {
 	box-sizing: border-box;
 	left: 0%;
-	height: 100%;
+	width: 50%;
 	padding-left: 1rem;
 	padding-right: 2.5rem;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 	transition: 0.25s;
+	z-index: 1;
 }
 
-figure figcaption {
+.course-card figcaption {
+	z-index: 2;
 	position: absolute;
 	top: 80%;
 	left: 50%;
@@ -121,9 +127,10 @@ figure figcaption {
 	margin: 0;
 	padding: 30px;
 	/* background-color: rgba(0, 0, 0, 0.85); */
+	background-color: #262A53;
 	/* background: radial-gradient(#1fe4f5, #03a9b8); */
 	/* background: radial-gradient(#60efbc, #58d5c9); */
-	background: radial-gradient(#98DDCA, #49c7a4);
+	/* background: radial-gradient(#8aa29b, #49c7a4); */
 	border-top-left-radius: 0.8rem;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 	color: white;
@@ -131,17 +138,18 @@ figure figcaption {
 	transition: 0.25s;
 }
 
-figure figcaption h3 {
+.course-card figcaption h3 {
 	margin: 0 0 20px;
 	padding: 0;
 }
 
-figure figcaption p {
+.course-card figcaption p {
 	font-size: 14px;
 	line-height: 1.75;
 }
 
-figure figcaption button {
+/* button styling */
+button {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -155,6 +163,11 @@ figure figcaption button {
 	font-size: 14px;
 }
 
+button:hover {
+	background-color: #040a1d;
+	color: white;
+}
+
 /* flexbox arrangement of courses */
 .courses-container {
 	display: flex;
@@ -165,7 +178,7 @@ figure figcaption button {
 .course-row {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	;
 }
 
 /* scroll bar in course card */
@@ -192,3 +205,36 @@ figure figcaption button {
 	border-right: 0;
 	background-color: #e4e4e8;
 } */
+
+/* course categories inside card */
+.course-category {
+	box-sizing: border-box;
+	margin-bottom: 5px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	flex-wrap: wrap;
+}
+div .course-category button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* padding: 10px 30px; */
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 1px;
+	background-color: #1a40bc;
+	border: none;
+	border-radius: 20px;
+	color: white;
+	font-size: 12px;
+}
+
+div .course-category button:hover {
+	background-color: #040a1d;
+	color: white;
+}
