@@ -1,0 +1,43 @@
+body {
+    /* display: flex;
+    min-height: 100vh;
+    flex-direction: column; */
+  
+    background-color: white;
+    background-size: cover;
+
+} 
+
+.container{
+    display:flex;
+    justify-content: space evenly;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 75px;
+    margin-right: 75px;
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+
+.container h2{
+    text-align: left;
+    font-weight: bolder;
+}
+
+.container h3{
+    margin-bottom: 10px;
+}
+
+.container .first-para{
+    margin-top: 10px;
+}
+
+.privacy-link{
+    text-decoration: none;
+}
+
+.privacy-link:hover{
+    text-decoration: underline;
+
+}
