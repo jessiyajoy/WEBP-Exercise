@@ -6,6 +6,8 @@ input[type="radio"] {
     display: none;
 }
 
+/* Duration Filters Using CSS */
+
 .duration-filters {
     display: flex;
     flex-direction: row;
@@ -41,6 +43,7 @@ input[type="radio"] {
     display: block;
 }
 
+/* Style the selected category of duration */
 [value="All"]:checked ~ .duration-filters [for="All"],
 [value="0-0.5hrs"]:checked ~ .duration-filters [for="0-0.5hrs"],
 [value="0.5-1hrs"]:checked ~ .duration-filters [for="0.5-1hrs"],
@@ -49,7 +52,7 @@ input[type="radio"] {
     background: rgb(84, 214, 116);
     color: white;
 }
-
+/* Cards of unselected categories are not displayed */
 [value="All"]:checked ~ .recorded-sessions-list li:not([data-duration]),
 [value="0-0.5hrs"]:checked ~ .recorded-sessions-list li:not([data-duration~="0-0.5hrs"]),
 [value="0.5-1hrs"]:checked ~ .recorded-sessions-list li:not([data-duration~="0.5-1hrs"]),
