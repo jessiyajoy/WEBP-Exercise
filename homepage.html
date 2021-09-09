@@ -1,133 +1,527 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-            crossorigin="anonymous"
-        >
-        <link rel="stylesheet" href="/style/homepage.css">
-        <title>Home Page</title>
-    </head>
-    <body>
-        <div class="search">
-            <input type="text" class="searchTerm" placeholder="">
-            <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-            </button>
-        </div>
-        <h1>Courses</h1>
-        <section class="courses-container">
-            <div class="course-row">
-                <figure class="course-card">
-                    <div class="card-left">
-                        <h3 class="course-card__title">
-                            HTML
-                        </h3>
-                        <p class="course-card__content">
-                            Learn about the skeleton for all websites!
-                        </p>
-                        <h4>Course Instructor : Jane Doe</h4>
-                        <div class="course-category">
-                            <button id="web-design">
-                                Web Design
-                            </button>
-                            <button>
-                                Computer Science
-                            </button>
-                        </div>
-                        <button>
-                            Go to course
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/navBarFooter.css" />
+    <link rel="stylesheet" href="/style/homepage.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+
+    <!-- nav b -->
+    <header>
+        <a id="logo" href="#">LMS</a>
+        <nav>
+            <ul class="nav__links-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="signIn.html#"><button>Login</button></a>
+    </header>
+
+    <!-- search bar -->
+    <div class="search">
+        <input type="text" class="searchTerm" placeholder="">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+
+    <h1>Courses</h1>
+
+    <input type="radio" id="All" name="categories" value="All" checked>
+    <input type="radio" id="ProgrammingLanguages" name="categories" value="ProgrammingLanguages">
+    <input type="radio" id="WebDevelopment" name="categories" value="WebDevelopment">
+    <input type="radio" id="DataAnalysis" name="categories" value="DataAnalysis">
+    <input type="radio" id="WebDesign" name="categories" value="WebDesign">
+
+    <ol class="filters">
+        <li>
+            <label for="All">All</label>
+        </li>
+        <li>
+            <label for="ProgrammingLanguages">Programming Languages</label>
+        </li>
+        <li>
+            <label for="WebDevelopment">Web Development</label>
+        </li>
+        <li>
+            <label for="DataAnalysis">Data Analysis</label>
+        </li>
+        <li>
+            <label for="WebDesign">Web Design</label>
+        </li>
+    </ol>
+    
+    <ul class="posts">
+        <!-- HTML card -->
+        <li class="post" data-category="WebDevelopment WebDesign">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        HTML
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
                         </button>
-                        <figcaption class="scroll-bar">
-                            <h3>HTML</h3>
-                            <p>
-                                HTML is the foundation of all web pages.
-                                In this course, you will learn all the common HTML tags used to structure HTML pages.
-                            </p>
-                        </figcaption>
+                        <button>
+                            Computer Science
+                        </button>
                     </div>
-                    <img src="resources/html.jpeg" alt="">
-                </figure>
-                <figure class="course-card">
-                    <img src="resources/css.png" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>CSS</h3>
-                        <p>
-                            With CSS, you can add color and background images and change the layout of your page.
-                            In this course, you will learn many aspects of styling web pages!
-                        </p>
-                        <button>
-                            Go to course
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/html.jpeg" alt="">
+            </figure>
+        </li>
+        <!-- CSS card -->
+        <li class="post" data-category="WebDevelopment WebDesign">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        CSS
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
                         </button>
-                    </figcaption>
-                </figure>
-                <figure class="course-card">
-                    <img src="resources/javascript.png" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>JAVASCRIPT</h3>
-                        <p>
-                            JavaScript powers the dynamic behavior on most websites. In this course, You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax.
-                        </p>
                         <button>
-                            Go to course
+                            Computer Science
                         </button>
-                    </figcaption>
-                </figure>
+                    </div>
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/css.png" alt="">
+            </figure>
+        </li>
+        <!-- Javascript -->
+        <li class="post" data-category="ProgrammingLanguages WebDevelopment">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        Javascript
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
+                        </button>
+                        <button>
+                            Computer Science
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/javascript.png" alt="">
+            </figure>
+        </li>
+        <!-- AJAX -->
+        <li class="post" data-category="WebDevelopment">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        AJAX
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
+                        </button>
+                        <button>
+                            Computer Science
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/ajax.jpeg" alt="">
+            </figure>
+        </li>
+        <!-- JAVA -->
+        <li class="post" data-category="ProgrammingLanguages JavaScript">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        JAVA
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
+                        </button>
+                        <button>
+                            Computer Science
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/java.png" alt="">
+            </figure>
+        </li>
+        <!-- Python -->
+        <li class="post" data-category="ProgrammingLanguages DataAnalysis">
+            <figure class="course-card">
+                <div class="card-left">
+                    <h3 class="course-card__title">
+                        PYTHON
+                    </h3>
+                    <p class="course-card__content">
+                        Learn about the skeleton for all websites!
+                    </p>
+                    <h4 class="course-card__subtitle">Course Instructor</h4>
+                    <p class="course-card__content">
+                        Jane Doe
+                    </p>
+                    <h4 class="course-card__subtitle">Tags</h4>
+                    <div class="course-category">
+                        <button id="web-design">
+                            Web Design
+                        </button>
+                        <button>
+                            Computer Science
+                        </button>
+                    </div>
+                </div>
+                <figcaption class="scroll-bar">
+                    <h4 class="course-card__title">
+                        About
+                    </h4>
+                    <p class="course-card__content">
+                        You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                        You will also be able to create HTML tables to present tabular data efficiently.
+                    </p>
+                    <button>
+                        Go to course
+                    </button>
+                </figcaption>
+                <img src="resources/python.png" alt="">
+            </figure>
+        </li>
+    </ul>
+
+    <!-- course cards container -->
+    <!-- <section class="courses-container">
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
             </div>
-            <div class="course-row">
-                <figure class="course-card">
-                    <img src="resources/ajax.jpeg" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>AJAX</h3>
-                        <p>
-                            AJAX stands for Asynchronous JavaScript and XML. AJAX is a new technique for creating better, faster, and more interactive web applications with the help of XML, HTML, CSS, and Java Script.
-                        </p>
-                        <button>
-                            Go to course
-                        </button>
-                    </figcaption>
-                </figure>
-                <figure class="course-card">
-                    <img src="resources/java.png" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>JAVA</h3>
-                        <p>
-                            Java is an object-oriented and general-purpose computer-programming language.
-                            In this course you’ll learn fundamental programming concepts, including object-oriented programming (OOP) using Java.
-                        </p>
-                        <button>
-                            Go to course
-                        </button>
-                    </figcaption>
-                </figure>
-                <figure class="course-card">
-                    <img src="resources/python.png" alt="">
-                    <figcaption class="scroll-bar">
-                        <h3>PYTHON</h3>
-                        <p>
-                            Python is an interpreted high-level general-purpose programming language. 
-                            In this course, you will learn from the basics and go all the way to creating your own applications and games
-                        </p>
-                        <button>
-                            Go to course
-                        </button>
-                    </figcaption>
-                </figure>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
             </div>
-        </section>
-        <!-- <div class="section">
-            <h2>Title</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis non, inventore incidunt repudiandae id vel nisi officiis provident iste necessitatibus. Ex recusandae eveniet tempora.</p>
-        </div>-->
-    </body>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
+            </div>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
+            </div>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
+            </div>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+        <figure class="course-card">
+            <div class="card-left">
+                <h3 class="course-card__title">
+                    HTML
+                </h3>
+                <p class="course-card__content">
+                    Learn about the skeleton for all websites!
+                </p>
+                <h4 class="course-card__subtitle">Course Instructor</h4>
+                <p class="course-card__content">
+                    Jane Doe
+                </p>
+                <h4 class="course-card__subtitle">Tags</h4>
+                <div class="course-category">
+                    <button id="web-design">
+                        Web Design
+                    </button>
+                    <button>
+                        Computer Science
+                    </button>
+                </div>
+            </div>
+            <figcaption class="scroll-bar">
+                <h4 class="course-card__title">
+                    About
+                </h4>
+                <p class="course-card__content">
+                    You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites.
+                    You will also be able to create HTML tables to present tabular data efficiently.
+                </p>
+                <button>
+                    Go to course
+                </button>
+            </figcaption>
+            <img src="resources/html.jpeg" alt="">
+        </figure>
+    </section> -->
+
+</body>
+
 </html>
