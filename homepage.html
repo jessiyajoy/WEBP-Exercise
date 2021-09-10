@@ -43,31 +43,32 @@
 
     <input type="radio" id="All" name="categories" value="All" checked>
     <input type="radio" id="ProgrammingLanguages" name="categories" value="ProgrammingLanguages">
-    <input type="radio" id="WebDevelopment" name="categories" value="WebDevelopment">
+    <input type="radio" id="Backend" name="categories" value="Backend">
     <input type="radio" id="DataAnalysis" name="categories" value="DataAnalysis">
-    <input type="radio" id="WebDesign" name="categories" value="WebDesign">
+    <input type="radio" id="Frontend" name="categories" value="Frontend">
 
     <ol class="filters">
         <li>
             <label for="All">All</label>
         </li>
         <li>
-            <label for="ProgrammingLanguages">Programming Languages</label>
+            <label for="Frontend">Frontend</label>
         </li>
         <li>
-            <label for="WebDevelopment">Web Development</label>
+            <label for="Backend">Backend</label>
+        </li>
+        <li>
+            <label for="ProgrammingLanguages">Programming Languages</label>
         </li>
         <li>
             <label for="DataAnalysis">Data Analysis</label>
         </li>
-        <li>
-            <label for="WebDesign">Web Design</label>
-        </li>
+
     </ol>
     
     <ul class="posts">
         <!-- HTML card -->
-        <li class="post" data-category="WebDevelopment WebDesign">
+        <li class="post" data-category="Frontend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -82,11 +83,8 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
-                        </button>
-                        <button>
-                            Computer Science
+                        <button id="Frontend">
+                            Frontend
                         </button>
                     </div>
                 </div>
@@ -105,7 +103,7 @@
             </figure>
         </li>
         <!-- CSS card -->
-        <li class="post" data-category="WebDevelopment WebDesign">
+        <li class="post" data-category="Frontend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -120,11 +118,8 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
-                        </button>
-                        <button>
-                            Computer Science
+                        <button id="Frontend">
+                            Frontend
                         </button>
                     </div>
                 </div>
@@ -144,7 +139,7 @@
             </figure>
         </li>
         <!-- Javascript -->
-        <li class="post" data-category="ProgrammingLanguages WebDevelopment">
+        <li class="post" data-category="ProgrammingLanguages Frontend Backend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -159,11 +154,14 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
+                        <button>
+                            Backend
                         </button>
                         <button>
-                            Computer Science
+                            Frontend
+                        </button>
+                        <button>
+                            Programming Language
                         </button>
                     </div>
                 </div>
@@ -183,7 +181,7 @@
             </figure>
         </li>
         <!-- AJAX -->
-        <li class="post" data-category="WebDevelopment">
+        <li class="post" data-category="Backend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -198,11 +196,8 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
-                        </button>
-                        <button>
-                            Computer Science
+                        <button id="Frontend">
+                            Backend
                         </button>
                     </div>
                 </div>
@@ -222,7 +217,7 @@
             </figure>
         </li>
         <!-- JAVA -->
-        <li class="post" data-category="ProgrammingLanguages JavaScript">
+        <li class="post" data-category="ProgrammingLanguages Backend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -237,11 +232,11 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
+                        <button>
+                            Programming Language
                         </button>
                         <button>
-                            Computer Science
+                            Backend
                         </button>
                     </div>
                 </div>
@@ -260,7 +255,7 @@
             </figure>
         </li>
         <!-- Python -->
-        <li class="post" data-category="ProgrammingLanguages DataAnalysis">
+        <li class="post" data-category="ProgrammingLanguages DataAnalysis Backend">
             <figure class="course-card">
                 <div class="card-left">
                     <h3 class="course-card__title">
@@ -275,11 +270,14 @@
                     </p>
                     <h4 class="course-card__subtitle">Tags</h4>
                     <div class="course-category">
-                        <button id="web-design">
-                            Web Design
+                        <button id="Frontend">
+                            Backend
                         </button>
                         <button>
-                            Computer Science
+                            Data Analysis
+                        </button>
+                        <button>
+                            ProgrammingLanguages
                         </button>
                     </div>
                 </div>
@@ -317,7 +315,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
@@ -353,7 +351,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
@@ -389,7 +387,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
@@ -425,7 +423,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
@@ -461,7 +459,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
@@ -497,7 +495,7 @@
                 </p>
                 <h4 class="course-card__subtitle">Tags</h4>
                 <div class="course-category">
-                    <button id="web-design">
+                    <button id="Frontend">
                         Web Design
                     </button>
                     <button>
