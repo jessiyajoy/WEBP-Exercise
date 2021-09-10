@@ -204,7 +204,7 @@ div .course-category button:hover {
 .course-card figcaption:hover {
     top: 0;
     border-top-left-radius: 0px;
-    background: rgba(11, 137, 176, 0.557);
+    background: rgba(8, 106, 163, 0.699);
     backdrop-filter: blur(5px);
 }
 
@@ -216,17 +216,19 @@ button {
     justify-content: center;
     margin-bottom: 1.8rem;
     padding: 10px 30px;
-    background-color: #0d95be;
+    background-color: #ffffff;
     border: none;
     border-radius: 0.5rem;
-    color: white;
+    color: rgb(73, 73, 73);
     font-size: 14px;
     transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+
+    font-family: 'Open Sans', sans-serif;
 }
 
 button:hover {
-    background-color: #027c9b;
-    color: white;
+    background-color: #cecece;
+    color: rgb(85, 85, 85);
 }
 
 /* hide radio button */
