@@ -1,3 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 body {
+    /* background: rgb(240, 236, 236); */
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("../resources/home1.jpg");
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.2rem;
+    margin-right: 2.2rem;
+    margin-top: 2rem;
+}
+
+/* ----SEARCH BAR------ */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Search for courses */
+.search-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    align-self: center;
+    margin-right: 1rem;
+}
+
+/* search bar */
+.search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+.input-search{
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: white;
+    /* padding-right: 40px; */
+}
+.input-search::placeholder{
+    color:rgba(0, 0, 0, 0.582);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    padding-left: 0.5rem;
+    display: none;
+}
+.btn-search{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: #1a1a1a;
+    background-color:transparent;
+    pointer-events: painted;  
+}
+
+.btn-search:focus ~ .input-search{
+    width: 300px;
+    background-color: white;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+    width: 300px;
+    background-color: white;
+    color:black;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+/* COURSES OFFERED */
+.courses-title {
+    font-family: "Montserrat", sans-serif;
+    color: #444444;
+    font-weight:900;
+    font-size: 40;
+}
+
+/* COURSE CATEGORIES */
+.courses-subtitle {
+    display: flex;
+    position: relative;
+    /* top : 130px; */
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #444444;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ------ FILTER CATEGORIES STYLING ------- */
+
+/* hide radio button */
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* styling filters */
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --grape-red: rgba(102, 138, 206, 0.972);
+}
+
+.filters {
+    text-align: center;
+    /* margin-bottom: 2rem; */
+}
+
+  .filters * {
+    display: inline-block;
+}
+
+.filters label {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.filters label:hover {
+    background: var(--grape-red);
+    color: var(--white);
+}
+
+/* ------ Course Cards CONTAINER - grid arrangement ---- */
+
+.posts {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin: 2rem;
+    margin-top: 0.8rem;
+}
+
+ul, li {
+    list-style: none;
+    display: block;
     margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1300px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .posts {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* --------FILTERING ELEMENT : COURSES BASED ON CATAGORIES --------- */
+
+/* filtering by hiding */
+[value="ProgrammingLanguages"]:checked ~ .posts .post:not([data-category~="ProgrammingLanguages"]),
+[value="Backend"]:checked ~ .posts .post:not([data-category~="Backend"]),
+[value="DataAnalysis"]:checked ~ .posts .post:not([data-category~="DataAnalysis"]),
+[value="Frontend"]:checked ~ .posts .post:not([data-category~="Frontend"]) {
+    display: none;
+}
+
+/* highlight current filter */
+[value="All"]:checked ~ .filters [for="All"],
+[value="ProgrammingLanguages"]:checked ~ .filters [for="ProgrammingLanguages"],
+[value="Backend"]:checked ~ .filters [for="Backend"],
+[value="DataAnalysis"]:checked ~ .filters [for="DataAnalysis"],
+[value="Frontend"]:checked ~ .filters [for="Frontend"] {
+    background: var(--grape-red);
+    color: var(--white);
+}
+
+/* --------COURSE CARDS --------- */
+
+/* course cards */
+.course-card {
+    position: relative;
+    /* margin-right: 0.1rem;
+    margin-left: 0.1rem;
+    margin-bottom: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+
+    margin-right: 0;
+
+    /* justify-content: space-between; */
+    width: 26rem;
+    height: 18rem;
+    border-radius: 10px;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+    box-shadow: 0 1px 3px rgba(238, 235, 235, 0.036),
+        0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    background: white;
+}
+
+.card-left {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 55%;
+}
+
+.course-card img {
+    box-sizing: border-box;
+    min-width: 5rem;
+    padding-bottom: 2.4rem;
+    transition: 0.25s;
+    width: 40%;
+}
+
+/* course card title */
+.course-card__title {
+    font-size: 1.8rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.course-card__subtitle {
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+
+.course-card__content {
+    font-family: 1rem;
+    font-family: "Open Sans";
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.course-card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* course categories inside card */
+.course-category {
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+}
+
+.course-card figcaption {
+    z-index: 2;
+    position: absolute;
+    top: 15rem;
+    /* bottom: 4rem; */
+    left: 55%;
+    width: 45%;
+    height: 100%;
+    margin: 0;
+    /* padding: 1.2rem; */
+    padding-left: 1.1rem;
+    padding-right: 1.2rem;
+
+    box-sizing: border-box;
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    /* background-color: #262a53; */
+    background: radial-gradient(#36a9e6, #0077b6);
+    /* background: radial-gradient(#60efbc, #58d5c9); */
+    /* background: radial-gradient(#8aa29b, #49c7a4); */
+    border-top-left-radius: 0.8rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    line-height: 1;
+    transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.course-card figcaption h4 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.course-card figcaption p {
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.course-card figcaption:hover {
+    top: 0;
+    border-top-left-radius: 0px;
+    background: rgba(8, 106, 163, 0.699);
+    backdrop-filter: blur(5px);
+}
+
+/* ----- Button styling ----- */
+
+/* tag button */
+div .course-category button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px 30px; */
+
+    font-family: 1rem;
+    font-family: "Open Sans";
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin: 1px;
+    background-color: #818181;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div .course-category button:hover {
+    background-color: #444444;
+    color: white;
+}
+
+/* go to course button */
+a.goto-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    color: rgb(73, 73, 73);
+    font-size: 14px;
+    transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+a.goto-button:hover {
+    background-color: #dbd9d9;
+    color: rgb(97, 95, 95);
 }
