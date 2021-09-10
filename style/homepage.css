@@ -294,7 +294,8 @@ ul, li {
 }
 
 .posts figcaption {
-    padding: 1rem;
+    padding: 0.8rem;
+    padding-top: 0.5rem;
 }
 
 .posts .post-categories {
