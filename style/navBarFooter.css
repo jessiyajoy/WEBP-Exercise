@@ -6,7 +6,7 @@
     padding: 0;
 }
 #logo{
-    font-size: 75px;
+    font-size: 50px;
     font-weight: 800px;
     text-decoration: none;
     margin-right: auto;
@@ -26,7 +26,7 @@ header{
     justify-content: flex-end;
     align-items: center;
     padding: 1px 5%; 
-    background-color: #2980B9;
+    background-color: rgba(41, 128, 185,0.3);
 }
 
 .nav__links-left, .nav__links-right{
@@ -76,7 +76,7 @@ footer ul {
 footer {
     background-color: #555;
     color: #bbb;
-    line-height: 1.5;
+    line-height: 0.1;
 }
 footer a {
     text-decoration: none;
