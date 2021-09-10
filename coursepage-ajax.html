@@ -1,14 +1,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Ajax Course Page</title>
+    <title>AJAX Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -19,17 +19,16 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
     <script src="https://kit.fontawesome.com/43f9be8744.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style/navBarFooter.css" />
-    <link rel="stylesheet" href="/style/coursepage.css">
-    <link rel="stylesheet" href="/style/cards-container.css">
-    <link rel="stylesheet" href="/style/card.css">
-
+    <link rel="stylesheet" href="/style/coursepage.css" />
+    <link rel="stylesheet" href="/style/cards-container.css" />
+    <link rel="stylesheet" href="/style/card.css" />
 </head>
 
 <body>
@@ -45,10 +44,10 @@
         <!-- <a class="cta" href="registerPage.html#"><button>Register</button></a>
         <a class="cta" href="signIn.html#"><button>Login</button></a> -->
     </header>
-    <div class="two-list-container">
+    <div class="course-contents-container">
         <article class="course-intro">
             <section class="course-intro">
-                <div class="card card-1">
+                <div class="card card-4">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
                     <h2 class="card__title">Ajax</h2>
                     <p class="card__item-title">
@@ -62,7 +61,7 @@
                         Instructor
                     </p>
                     <p class="card__description">
-                        John Doe
+                        Jane Doe
                     </p>
                     <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
                 </div>
@@ -72,309 +71,473 @@
             </section>
         </article>
         <section class="card-container">
-            <h1 class="card-container-title">
-                Course Reference Materials
-            </h1>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        Ref 1 : AJAX - The Complete Reference
-                    </h3>
-                    <time class="basic-card-header__time">
-                        23 <br>
-                        Jun
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content__synopsis">
-                        <h3 class="basic-card-content__heading">
-                            Synopsis
-                        </h3>
-                        <p>
-                            Reference book - AJAX - The Complete Reference <br>
-                        </p>
-                    </section>
-                    <section class="basic-card-content__due-date">
-                        <h3 class="basic-card-content__heading"> Due Date</h3>
-                        <time class="basic-card-content__info">
-                            No Due Date
-                        </time>
-                    </section>
-                    <section class="collapse" class="basic-card-content__collapsible-part"
-                        id="basic-card-content__collapsible-part0">
-                        <br>
-                        <section class="basic-card-content__description">
-                            <h3 class="basic-card-content__heading">
-                                Description
+            <h1 class="card-container-title">Course Reference Materials</h1>
+            <ul>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Ref 1 : AJAX - The Complete Reference
                             </h3>
-                            <p>
-                                This book is meant for Web professionals with background in HTML, CSS, and JavaScript. 
-                                It book lays out every feature of Ajax alongside detailed explanations and real-world code examples.
-                            </p>
-                        </section>
-                        <section class="basic-card-content__articles">
-                            <h3 class="basic-card-content__heading">Articles</h3>
-                            <article>
-                                <a href="resources/AJAX - The Complete Reference.pdf">Download AJAX - The Complete Reference here</a>
-                            </article>
-                        </section>
-                    </section>
-                    <center>
-                        <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                            href="#basic-card-content__collapsible-part0">
-                            <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                            <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
-                        </a>
-                    </center>
-                </div>
-            </article>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        Ajax Assigment 1
-                    </h3>
-                    <time class="basic-card-header__time">
-                        26 <br>
-                        Jun
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content__synopsis">
-                        <h3 class="basic-card-content__heading">
-                            Synopsis
-                        </h3>
-                        <p>
-                            Simple Ajax-enabled Web application <br>
-                        </p>
-                    </section>
-                    <section class="basic-card-content__due-date">
-                        <h3 class="basic-card-content__heading"> Due Date</h3>
-                        <time class="basic-card-content__warning">
-                            31 Jul
-                        </time>
-                    </section>
-                    <section class="collapse" class="basic-card-content__collapsible-part"
-                        id="basic-card-content__collapsible-part1">
-                        <br>
-                        <section class="basic-card-content__description">
-                            <h3 class="basic-card-content__heading">
-                                Description
+                            <time class="basic-card-header__time">
+                                23 <br>
+                                Jun
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
+                                </h3>
+                                <p>
+                                    Reference book - AJAX - The Complete Reference <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__info">
+                                    No Due Date
+                                </time>
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part0">
+                                <br>
+                                <section class="basic-card-content__description">
+                                    <h3 class="basic-card-content__heading">
+                                        Description
+                                    </h3>
+                                    <p>
+                                        This book is meant for Web professionals with background in HTML, CSS, and JavaScript. 
+                                        It book lays out every feature of Ajax alongside detailed explanations and real-world code examples.
+                                    </p>
+                                </section>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a href="resources/AJAX - The Complete Reference.pdf">Download AJAX - The Complete Reference here</a>
+                                    </article>
+                                </section>
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part0">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Ajax Assigment 1
                             </h3>
-                            <p>
-                                For this assignment, create and test a Ajax-enabled Web application using the XMLHttpRequest object 
-                                as well as alternative JavaScript-based communication mechanisms.
-                            </p>
-                        </section>
-                        <section class="basic-card-content__articles">
-                            <h3 class="basic-card-content__heading">Articles</h3>
-                            <article>
-                                <a
-                                    href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
-                                    1</a>
-                            </article>
-                            <article>
-                                <a href="https://www.Ajax.org/">Download sample application here</a>
-                            </article>
-                        </section>
-                    </section>
-                    <center>
-                        <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                            href="#basic-card-content__collapsible-part1">
-                            <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                            <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
-                        </a>
-                    </center>
-                </div>
-            </article>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        Ajax Assigment 2
-                    </h3>
-                    <time class="basic-card-header__time">
-                        15<br>
-                        Aug
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content__synopsis">
-                        <h3 class="basic-card-content__heading">
-                            Synopsis
-                        </h3>
-                        <p>
-                            Assigment 2 - Build a fully fledged Ajax-enabled Web application <br>
-                        </p>
-                    </section>
-                    <section class="basic-card-content__due-date">
-                        <h3 class="basic-card-content__heading"> Due Date</h3>
-                        <time class="basic-card-content__warning">
-                            31 Sept
-                        </time>
-                    </section>
-                    <section class="collapse" class="basic-card-content__collapsible-part"
-                        id="basic-card-content__collapsible-part2">
-                        <br>
-                        <section class="basic-card-content__description">
-                            <h3 class="basic-card-content__heading">
-                                Description
+                            <time class="basic-card-header__time">
+                                26 <br>
+                                Jun
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
+                                </h3>
+                                <p>
+                                    Simple Ajax-enabled Web application <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__warning">
+                                    31 Jul
+                                </time>
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part1">
+                                <br>
+                                <section class="basic-card-content__description">
+                                    <h3 class="basic-card-content__heading">
+                                        Description
+                                    </h3>
+                                    <p>
+                                        For this assignment, create and test a Ajax-enabled Web application using the XMLHttpRequest object 
+                                        as well as alternative JavaScript-based communication mechanisms.
+                                    </p>
+                                </section>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a
+                                            href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
+                                            1</a>
+                                    </article>
+                                    <article>
+                                        <a href="https://www.w3schools.com/xml/ajax_intro.asp">Get AJAX references here</a>
+                                    </article>
+                                </section>
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part1">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Ajax Assigment 2
                             </h3>
-                            <p>
-                                For assignment 2, you will build on top of the web application from assignment 1. 
-                                The following should be implemented additionally in the application :
-                                Secure Ajax applications using authentication, obfuscation, and encryption, 
-                                Implement common Ajax UI patterns such as auto suggest, click-to-edit, and drag-and-drop, 
-                                Solve troubling Ajax architecture problems, including back button, history, and bookmarking issues
-                            </p>
-                        </section>
-                        <section class="basic-card-content__articles">
-                            <h3 class="basic-card-content__heading">Articles</h3>
-                            <article>
-                                <a
-                                    href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
-                                    2</a>
-                            </article>
-                            <article>
-                                <a href="https://www.Ajax.org/">Download sample application here</a>
-                            </article>
-                        </section>
-                    </section>
-                    <center>
-                        <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                            href="#basic-card-content__collapsible-part2">
-                            <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                            <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
-                        </a>
-                    </center>
-                </div>
-            </article>
+                            <time class="basic-card-header__time">
+                                15<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
+                                </h3>
+                                <p>
+                                    Assigment 2 - Build a fully fledged Ajax-enabled Web application <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__warning">
+                                    31 Sept
+                                </time>
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part2">
+                                <br>
+                                <section class="basic-card-content__description">
+                                    <h3 class="basic-card-content__heading">
+                                        Description
+                                    </h3>
+                                    <p>
+                                        For assignment 2, you will build on top of the web application from assignment 1. 
+                                        The following should be implemented additionally in the application :
+                                        Secure Ajax applications using authentication, obfuscation, and encryption, 
+                                        Implement common Ajax UI patterns such as auto suggest, click-to-edit, and drag-and-drop, 
+                                        Solve troubling Ajax architecture problems, including back button, history, and bookmarking issues
+                                    </p>
+                                </section>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a
+                                            href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
+                                            2</a>
+                                    </article>
+                                    <article>
+                                        <a href="https://www.w3schools.com/xml/ajax_intro.asp">Get AJAX references here</a>
+                                    </article>
+                                </section>
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part2">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+            </ul>
         </section>
         <section class="card-container">
-            <h1 class="card-container-title">
-                Recorded Sessions
-            </h1>
-            <button class="btn course-sort-by-button">
-                Sort By
-            </button>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        1. Introduction to Ajax
-                    </h3>
-                    <time class="basic-card-header__time">
-                        15<br>
-                        Aug
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content-section">
-                        <section class="basic-card-content__info-section">
-                            <section class="basic-card-content__synopsis">
-                                <h3 class="basic-card-content__heading">
-                                    Synopsis
-                                </h3>
-                                <p>
-                                    Introductory Session for Ajax, XMLHTTP Request Object <br>
-                                </p>
+            <h1 class="card-container-title">Recorded Sessions</h1>
+            <p class="btn course-sort-by-button">Categorize by Duration</p>
+
+            <!-- MENU FOR CATEGORIZING -->
+            <input type="radio" id="All" name="duration" value="All" checked>
+            <input type="radio" id="0-0.5hrs" name="duration" value="0-0.5hrs">
+            <input type="radio" id="0.5-1hrs" name="duration" value="0.5-1hrs">
+            <input type="radio" id="1-1.5hrs" name="duration" value="1-1.5hrs">
+            <input type="radio" id="1.5-plus-hrs" name="duration" value="1.5-plus-hrs">
+
+            <ol class="duration-filters">
+                <li>
+                    <label for="All">All</label>
+                </li>
+                <li>
+                    <label for="0-0.5hrs">0 - 0.5 hrs</label>
+                </li>
+                <li>
+                    <label for="0.5-1hrs">0.5 - 1 hrs</label>
+                </li>
+                <li>
+                    <label for="1-1.5hrs">1 - 1.5 hrs</label>
+                </li>
+                <li>
+                    <label for="1.5-plus-hrs">1.5+ hrs</label>
+                </li>
+            </ol>
+
+
+            <ul class="recorded-sessions-list">
+                <li data-duration="1-1.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                1. Introduction to Ajax
+                            </h3>
+                            <time class="basic-card-header__time">
+                                15<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Introductory Session for Ajax, XMLHTTP Request Object <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 30 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p>
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                            <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Duration </h3>
-                                <time class="basic-card-content__info">
-                                    1 hour 30 minutes
-                                </time>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="1-1.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                2. XML Data and AJAX
+                            </h3>
+                            <time class="basic-card-header__time">
+                                17<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Receiving XML Data, Displaying XML Data in a Table, Manipulating XML Data in the DOM <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 05 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p>
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                        </section>
-                        <section class="basic-card-content__video-control-section">
-                            <p>
-                                Watch
-                            </p>
-                            <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                class="basic-card-video-button-container">
-                                <i class="basic-card-video-button fas fa-play"></i>
-                            </a>
-                        </section>
-                    </section>
-                </div>
-            </article>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        2. XML Data and AJAX
-                    </h3>
-                    <time class="basic-card-header__time">
-                        17<br>
-                        Aug
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content-section">
-                        <section class="basic-card-content__info-section">
-                            <section class="basic-card-content__synopsis">
-                                <h3 class="basic-card-content__heading">
-                                    Synopsis
-                                </h3>
-                                <p>
-                                    Receiving XML Data, Displaying XML Data in a Table, Manipulating XML Data in the DOM <br>
-                                </p>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0.5-1hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                3. Build JSON Object for Server Consumption
+                            </h3>
+                            <time class="basic-card-header__time">
+                                25<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            What is JSON?, Displaying JSON Data, JSON object for server <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            50 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p>
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                            <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Duration </h3>
-                                <time class="basic-card-content__info">
-                                    1 hour 05 minutes
-                                </time>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0-0.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                4. AJAX with jQuery
+                            </h3>
+                            <time class="basic-card-header__time">
+                                28<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            jQuery AJAX output to element, jQuery in Codepen, jQuery AJAX shorthand, jQuery Mulitple Items API, jQuery post with AJAX
+                                            and demonstration of above cases
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            30 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                        </section>
-                        <section class="basic-card-content__video-control-section">
-                            <p>
-                                Watch
-                            </p>
-                            <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                class="basic-card-video-button-container">
-                                <i class="basic-card-video-button fas fa-play"></i>
-                            </a>
-                        </section>
-                    </section>
-                </div>
-            </article>
-            <article class="basic-card">
-                <header class="basic-card-header">
-                    <h3 class="basic-card-header__title">
-                        3. Build JSON Object for Server Consumption
-                    </h3>
-                    <time class="basic-card-header__time">
-                        25<br>
-                        Aug
-                    </time>
-                </header>
-                <div class="basic-card-content">
-                    <section class="basic-card-content-section">
-                        <section class="basic-card-content__info-section">
-                            <section class="basic-card-content__synopsis">
-                                <h3 class="basic-card-content__heading">
-                                    Synopsis
-                                </h3>
-                                <p>
-                                    What is JSON?, Displaying JSON Data, JSON object for server <br>
-                                </p>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="1.5-plus-hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                5. JavaScript libraries for AJAX
+                            </h3>
+                            <time class="basic-card-header__time">
+                                29<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                           Using Axios with AJAX; Axios AJAX post, AXIOS Get Data Update HTML
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 50 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                            <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Duration </h3>
-                                <time class="basic-card-content__info">
-                                    50 minutes
-                                </time>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0.5-1hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                6. AJAX Request Testing
+                            </h3>
+                            <time class="basic-card-header__time">
+                                02<br>
+                                Sep
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            AJAX tester tool introduction and implementation <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            55 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
                             </section>
-                        </section>
-                        <section class="basic-card-content__video-control-section">
-                            <p>
-                                Watch
-                            </p>
-                            <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                class="basic-card-video-button-container">
-                                <i class="basic-card-video-button fas fa-play"></i>
-                            </a>
-                        </section>
-                    </section>
-                </div>
-            </article>
+                        </div>
+                    </article>
+                </li>
+            </ul>
         </section>
     </div>
     <footer>
