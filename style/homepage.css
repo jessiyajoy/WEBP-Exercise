@@ -1,62 +1,214 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body {
-    background: rgb(240, 236, 236);
-    font-family: "Open Sans";
+    /* background: rgb(240, 236, 236); */
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("../resources/home1.jpg");
 }
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.2rem;
+    margin-right: 2.2rem;
+    margin-top: 2rem;
+}
+
+/* ----SEARCH BAR------ */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Search for courses */
+.search-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    align-self: center;
+    margin-right: 1rem;
+}
+
 /* search bar */
-.search {
-    width: 100%;
+.search-box{
+    width: fit-content;
+    height: fit-content;
     position: relative;
-    display: flex;
-    margin: 3%;
 }
-
-.searchTerm {
-    width: 50%;
-    border: 3px solid white;
-    border-right: none;
-    padding: 5px;
-    height: 36px;
-    border-radius: 8px 0 0 8px;
+.input-search{
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 20px;
+    font-size: 14px;
+    letter-spacing: 2px;
     outline: none;
-    color: #2c3b5e;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: white;
+    /* padding-right: 40px; */
 }
-
-.searchTerm:focus {
-    color: #2c3b5e;
+.input-search::placeholder{
+    color:rgba(0, 0, 0, 0.582);
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    padding-left: 0.5rem;
+    display: none;
 }
-
-.searchButton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid white;
-    background: white;
-    text-align: center;
-    color: black;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
+.btn-search{
+    width: 50px;
+    height: 50px;
+    border-style: none;
     font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: #1a1a1a;
+    background-color:transparent;
+    pointer-events: painted;  
 }
 
-/* ////////////////////////////////// */
+.btn-search:focus ~ .input-search{
+    width: 300px;
+    background-color: white;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+.input-search:focus{
+    width: 300px;
+    background-color: white;
+    color:black;
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
 
-.courses-container {
+/* COURSES OFFERED */
+.courses-title {
+    font-family: "Montserrat", sans-serif;
+    color: #444444;
+    font-weight:900;
+    font-size: 40;
+}
+
+/* COURSE CATEGORIES */
+.courses-subtitle {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    justify-content: center;
+    position: relative;
+    /* top : 130px; */
     width: 100%;
-    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #444444;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+/* ------ FILTER CATEGORIES STYLING ------- */
+
+/* hide radio button */
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* styling filters */
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --grape-red: rgba(102, 138, 206, 0.972);
+}
+
+.filters {
+    text-align: center;
+    /* margin-bottom: 2rem; */
+}
+
+  .filters * {
+    display: inline-block;
+}
+
+.filters label {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.filters label:hover {
+    background: var(--grape-red);
+    color: var(--white);
+}
+
+/* ------ Course Cards CONTAINER - grid arrangement ---- */
+
+.posts {
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    place-content: center;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin: 2rem;
+    margin-top: 0.8rem;
+}
+
+ul, li {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1300px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .posts {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* --------FILTERING ELEMENT : COURSES BASED ON CATAGORIES --------- */
+
+/* filtering by hiding */
+[value="ProgrammingLanguages"]:checked ~ .posts .post:not([data-category~="ProgrammingLanguages"]),
+[value="Backend"]:checked ~ .posts .post:not([data-category~="Backend"]),
+[value="DataAnalysis"]:checked ~ .posts .post:not([data-category~="DataAnalysis"]),
+[value="Frontend"]:checked ~ .posts .post:not([data-category~="Frontend"]) {
+    display: none;
+}
+
+/* highlight current filter */
+[value="All"]:checked ~ .filters [for="All"],
+[value="ProgrammingLanguages"]:checked ~ .filters [for="ProgrammingLanguages"],
+[value="Backend"]:checked ~ .filters [for="Backend"],
+[value="DataAnalysis"]:checked ~ .filters [for="DataAnalysis"],
+[value="Frontend"]:checked ~ .filters [for="Frontend"] {
+    background: var(--grape-red);
+    color: var(--white);
+}
+
+/* --------COURSE CARDS --------- */
 
 /* course cards */
 .course-card {
     position: relative;
-    margin-right: 0.1rem;
+    /* margin-right: 0.1rem;
     margin-left: 0.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -65,6 +217,8 @@ body {
     padding-bottom: 0.2rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
+
+    margin-right: 0;
 
     /* justify-content: space-between; */
     width: 26rem;
@@ -81,7 +235,7 @@ body {
 .card-left {
     flex-direction: column;
     align-items: flex-start;
-    width: 65%;
+    width: 55%;
 }
 
 .course-card img {
@@ -119,10 +273,6 @@ body {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-/* .course-card:hover img {
-    transform: scale(1.1);
-} */
-
 /* course categories inside card */
 .course-category {
     box-sizing: border-box;
@@ -133,34 +283,6 @@ body {
     align-items: center;
     /* justify-content: center; */
     flex-wrap: wrap;
-}
-div .course-category button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* padding: 10px 30px; */
-
-    font-family: 1rem;
-    font-family: "Open Sans";
-
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 7px;
-    padding-right: 7px;
-    margin: 1px;
-    background-color: #818181;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 12px;
-
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-div .course-category button:hover {
-    background-color: #444444;
-    color: white;
 }
 
 .course-card figcaption {
@@ -190,7 +312,7 @@ div .course-category button:hover {
 }
 
 .course-card figcaption h4 {
-    margin-top: 0.65rem;
+    margin-top: 1.2rem;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
@@ -208,8 +330,40 @@ div .course-category button:hover {
     backdrop-filter: blur(5px);
 }
 
-/* button styling */
-button {
+/* ----- Button styling ----- */
+
+/* tag button */
+div .course-category button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px 30px; */
+
+    font-family: 1rem;
+    font-family: "Open Sans";
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin: 1px;
+    background-color: #818181;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+div .course-category button:hover {
+    background-color: #444444;
+    color: white;
+}
+
+/* go to course button */
+a.goto-button {
     position: relative;
     display: flex;
     align-items: center;
@@ -222,136 +376,11 @@ button {
     color: rgb(73, 73, 73);
     font-size: 14px;
     transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
-
     font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
 }
 
-button:hover {
-    background-color: #cecece;
-    color: rgb(85, 85, 85);
-}
-
-/* hide radio button */
-input[type="radio"] {
-    position: absolute;
-    left: -9999px;
-}
-
-/* styling filters */
-:root {
-    --black: #1a1a1a;
-    --white: #fff;
-    --grape-red: rgba(79, 4, 4, 0.913);
-}
-
-.filters {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-  .filters * {
-    display: inline-block;
-}
-
-.filters label {
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.25rem;
-    border-radius: 2rem;
-    min-width: 50px;
-    line-height: normal;
-    cursor: pointer;
-    transition: all 0.1s;
-}
-
-.filters label:hover {
-    background: var(--grape-red);
-    color: var(--white);
-}
-
-/* styling cards */
-.posts {
-    display: grid;
-    grid-gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-ul, li {
-    list-style: none;
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-/* .posts .post {
-    background: #fafafa; 
-    border: 1px solid rgba(0, 0, 0, 0.1);
-} */
-
-.posts .post-title {
-    font-size: 1.3rem;
-}
-
-.posts .post-title:hover {
-    text-decoration: underline;
-}
-
-.posts figcaption {
-    padding: 0.8rem;
-    padding-top: 0.5rem;
-}
-
-.posts .post-categories {
-    margin-bottom: 0.75rem;
-    font-size: .75rem;
-}
-
-.posts .post-categories * {
-    display: inline-block;
-}
-
-.posts .post-categories li {
-    margin-bottom: 0.2rem;
-}
-
-.posts .post-categories a {
-    padding: 0.2rem 0.5rem;
-    border-radius: 1rem;
-    border: 1px solid;
-    line-height: normal;
-    background: all 0.1s;
-}
-
-.posts .post-categories a:hover {
-    background: var(--grape-red);
-    color: var(--white);
-}
-
-@media screen and (max-width: 1200px) {
-    .posts {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .posts {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-/* filtering by hiding */
-[value="ProgrammingLanguages"]:checked ~ .posts .post:not([data-category~="ProgrammingLanguages"]),
-[value="Backend"]:checked ~ .posts .post:not([data-category~="Backend"]),
-[value="DataAnalysis"]:checked ~ .posts .post:not([data-category~="DataAnalysis"]),
-[value="Frontend"]:checked ~ .posts .post:not([data-category~="Frontend"]) {
-    display: none;
-}
-
-/* highlight current filter */
-[value="All"]:checked ~ .filters [for="All"],
-[value="ProgrammingLanguages"]:checked ~ .filters [for="ProgrammingLanguages"],
-[value="Backend"]:checked ~ .filters [for="Backend"],
-[value="DataAnalysis"]:checked ~ .filters [for="DataAnalysis"],
-[value="Frontend"]:checked ~ .filters [for="Frontend"] {
-    background: var(--grape-red);
-    color: var(--white);
+a.goto-button:hover {
+    background-color: #dbd9d9;
+    color: rgb(97, 95, 95);
 }
