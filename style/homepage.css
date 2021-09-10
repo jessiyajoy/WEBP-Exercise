@@ -338,18 +338,18 @@ ul, li {
 
 /* filtering by hiding */
 [value="ProgrammingLanguages"]:checked ~ .posts .post:not([data-category~="ProgrammingLanguages"]),
-[value="WebDevelopment"]:checked ~ .posts .post:not([data-category~="WebDevelopment"]),
+[value="Backend"]:checked ~ .posts .post:not([data-category~="Backend"]),
 [value="DataAnalysis"]:checked ~ .posts .post:not([data-category~="DataAnalysis"]),
-[value="WebDesign"]:checked ~ .posts .post:not([data-category~="WebDesign"]) {
+[value="Frontend"]:checked ~ .posts .post:not([data-category~="Frontend"]) {
     display: none;
 }
 
 /* highlight current filter */
 [value="All"]:checked ~ .filters [for="All"],
 [value="ProgrammingLanguages"]:checked ~ .filters [for="ProgrammingLanguages"],
-[value="WebDevelopment"]:checked ~ .filters [for="WebDevelopment"],
+[value="Backend"]:checked ~ .filters [for="Backend"],
 [value="DataAnalysis"]:checked ~ .filters [for="DataAnalysis"],
-[value="WebDesign"]:checked ~ .filters [for="WebDesign"] {
+[value="Frontend"]:checked ~ .filters [for="Frontend"] {
     background: var(--grape-red);
     color: var(--white);
 }
