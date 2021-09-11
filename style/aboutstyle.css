@@ -18,7 +18,7 @@ body {
       margin-right: 200px;
       
   }
-  /* Float four columns side by side */
+  /* Float three columns side by side */
   .column {
     float: left;
     width: 25%;
@@ -60,16 +60,85 @@ body {
   }
 
  
-
-  /* .card .jess{
-      width: 500px;
-  } */
-  
   /* Responsive columns - one column layout (vertical) on small screens */
-  @media screen and (max-width: 600px) {
+
+  @media only screen and (max-width: 1400px) {
+    .column {
+        width: 30%;
+        margin: auto;
+        margin-bottom: 4rem;
+    }
+}
+@media only screen and (max-width: 1250px) {
+  .column {
+      width:75%;
+      margin: auto;
+      margin-top: 3.75rem;
+  }
+  .about-text h2{
+    
+    margin-top: 50px;
+}
+
+.about-text p{
+    
+    margin-top: 20px;
+}
+}
+
+  /* @media screen and (max-width: 600px) {
     .column {
       width: 100%;
       display: block;
       margin-bottom: 20px;
     }
   }
+
+  @media screen and (max-width: 900px) {
+    .column {
+      float:left;
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+      margin-right: 50px;
+    }
+    .row{
+      margin-left: 0px;
+      margin-right: 100px;
+    }
+    
+  }
+
+  @media screen and (max-width: 1000px) {
+    .column {
+      float:left;
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+      margin-right: 50px;
+    }
+    .row{
+      margin-left: 0px;
+      margin-right: 10px;
+      text-align:center;
+    }
+    
+  }
+
+  @media screen and (max-width: 1300px) {
+    .column {
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+      margin-left: 250px;
+    }
+
+    .about-text h2{
+      margin-top: 100px;
+  }
+
+  .about-text p{
+      margin-top: 10px;
+  }
+}
+ */
