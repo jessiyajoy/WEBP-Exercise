@@ -10,8 +10,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-    echo $_POST['password'];
-    echo $_POST['email'];
+    // echo $_POST['password'];
+    // echo $_POST['email'];
 
     if(!empty($email) && !empty($pass))
     {
@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <li><a href="contactus.html#">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="registerPage.php"><button>Register</button></a>
         <!-- <a class="cta" href="#"><button>Login</button></a> -->
     </header>
     

@@ -17,40 +17,40 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $user_name = $_POST['name'];
 
     if (!preg_match("/^[a-zA-Z-' ]*$/",$user_name)) {
-    //    echo "Name must contain only alphabets";
-       $nameErr = "Name must contain only alphabets";
+       echo "Name must contain only alphabets";
+       //$nameErr = "Name must contain only alphabets";
        exit;
     }
 
    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        // echo "Invalid email address";
-        $emailErr = "Invalid email address";
+        echo "Invalid email address";
+        //$emailErr = "Invalid email address";
         exit;
    }
 
     if($conf_pass != $pass){
-        // echo "The passwords do not match. Try again";
-        $passErr = "The passwords do not match. Try again";
+        echo "The passwords do not match. Try again";
+        //$passErr = "The passwords do not match. Try again";
         exit;  
     }
 
     if(strlen($pass) <= 8){
-        // echo "The password must have be atleast 8 characters long";
-        $passErr = "The password must have be atleast 8 characters long";
+        echo "The password must have be atleast 8 characters long";
+        //$passErr = "The password must have be atleast 8 characters long";
         exit;
     }
 
     preg_match('/[0-9]+/',$pass,$matches);
     if(sizeof($matches) == 0){
-        // echo "The password must have atleast one number";
-        $passErr = "The password must have be atleast 8 characters long";
+        echo "The password must have atleast one number";
+        //$passErr = "The password must have be atleast 8 characters long";
         exit;
     }
 
     preg_match('/[!@#$%^&*()]+/',$pass,$matches);
     if(sizeof($matches) == 0){
-        // echo "The password must have atleast one special character";
-        $passErr = "The password must have atleast one special character";
+        echo "The password must have atleast one special character";
+        //$passErr = "The password must have atleast one special character";
         exit;
     }
 
@@ -90,8 +90,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     }
     else
     {
-        //echo "Please enter some valid information";
-        $genErr = "Please enter some valid information";
+        echo "Please enter some valid information";
+        //$genErr = "Please enter some valid information";
     }
 }
 
@@ -121,7 +121,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <li><a href="contactus.html#">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="signIn.html#"><button>Login</button></a>
+        <a class="cta" href="signIn.php"><button>Login</button></a>
         <!-- <a class="cta" href="#"><button>Login</button></a> -->
     </header>
     
