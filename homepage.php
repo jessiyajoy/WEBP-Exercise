@@ -4,8 +4,7 @@ session_start();
 include("connection.php");
 include("functions.php");
 
-$user_data = check_login($con)
-
+$user_data = check_login($con);
 
 ?>
 <html lang="en">
@@ -114,7 +113,7 @@ $user_data = check_login($con)
                     <p class="course-card__content">
                         You will learn all the common HTML tags used to structure HTML pages, the skeleton of all websites. Learn about all common html tags.
                     </p>
-                    <a href="./coursepage-html.html" class="goto-button">
+                    <a href="./coursepage-html.php" class="goto-button">
                         Go to course
                     </a>
                 </figcaption>
@@ -151,7 +150,7 @@ $user_data = check_login($con)
                         You will learn many aspects of styling web pages! You’ll be able to set up the correct file
                         structure, edit text and colors, and create attractive layouts.
                     </p>
-                    <a href="./coursepage-css.html" class="goto-button">
+                    <a href="./coursepage-css.php" class="goto-button">
                             Go to course
                     </a>
                 </figcaption>
@@ -194,7 +193,7 @@ $user_data = check_login($con)
                         You will learn programming
                         fundamentals and basic object-oriented concepts using latest, most powerful and flexible JavaScript
                     </p>
-                    <a href="./coursepage-javascript.html" class="goto-button">
+                    <a href="./coursepage-javascript.php" class="goto-button">
                         Go to course
                     </a>
                 </figcaption>
@@ -231,7 +230,7 @@ $user_data = check_login($con)
                         In this Intro Course, you will learn to make async requests with JS, 
                         and to use data APIs to take advantage of freely accessible data in your app
                     </p>
-                    <a href="./coursepage-ajax.html" class="goto-button">
+                    <a href="./coursepage-ajax.php" class="goto-button">
                         Go to course
                     </a>
                 </figcaption>
@@ -269,7 +268,7 @@ $user_data = check_login($con)
                     <p class="course-card__content">
                         An advanced level course whhere you will also learn to build advanced industry grade Java applications employing various core JAVA concepts.
                     </p>
-                    <a href="./coursepage-java.html" class="goto-button">
+                    <a href="./coursepage-java.php" class="goto-button">
                         Go to course
                     </a>
                 </figcaption>
@@ -313,7 +312,7 @@ $user_data = check_login($con)
                         fundamental programming concepts including data
                         structures and developing networked apps using the python
                     </p>
-                    <a href="./coursepage-python.html" class="goto-button">
+                    <a href="./coursepage-python.php" class="goto-button">
                         Go to course
                     </a>
                 </figcaption>

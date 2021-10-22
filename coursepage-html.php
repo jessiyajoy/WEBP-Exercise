@@ -1,5 +1,74 @@
-<html lang="en">
+<?php
+    session_start();
 
+    include_once("connection.php");
+    include_once("functions.php");
+
+    $user_data = check_login($con);
+    $curr_course = 'HTML';
+    $is_enrolled = check_enrolledincourse($con, $curr_course, $user_data['user_id']);
+
+    # utility functions
+
+    function findTotalNumberOfEnrolledStudents ($con, $table) {
+        $sql = "SELECT * FROM $table";
+        $result = mysqli_query($con, $sql);
+        return mysqli_num_rows($result);
+    }
+
+    function helloMessage($user_name) {
+        $out =  '<div class="alert alert-primary" role="alert"> Hey ' . $user_name . ', See all updates below.</div>';
+        return $out;
+    }
+
+    function doEnrolling($con, $user_data, $table) {
+        $out = "";
+        $user_id_submit = $user_data['user_id'];
+        $user_name_submit = $user_data['user_name'];
+        $sql = "INSERT INTO $table (user_id, user_name)
+                VALUES ('$user_id_submit', '$user_name_submit')";
+        if (mysqli_query($con, $sql)) {
+            $status = TRUE;
+            $out = $out .  '<div class="alert alert-primary" role="alert">' . 'Hello There, ' . $user_data['user_name']  . '!<br/>You are now Succesfully Enrolled in this Course.' .  '</div>';
+        } else {
+            $STATUS = FALSE;
+            $out = $out . "Error: " . $sql . "<br>" . mysqli_error($con);
+        }
+        $status_and_out = array();
+        $status_and_out['status'] = $status;
+        $status_and_out['out'] = $out;
+        return $status_and_out;
+    }
+
+    function doUnEnrolling($con, $user_data, $table) {
+        $user_id_submit = $user_data['user_id'];
+        $sql = "DELETE FROM $table WHERE user_id=$user_id_submit;";
+        $out = "";
+        if ($con->query($sql) === TRUE) {
+            $out = $out . '<script type="text/javascript">location.href = "./coursepage-html.php";</script>';
+        } else {
+            $out = $out . "Error deleting record: " . $con->error;
+        }
+        return $out;
+    }
+
+    function showEnrollButton() {
+        $out = '<form method="post">
+                    <input class="btn btn-primary" type="submit" name="EnrollNow" value="Enroll Now!"/>
+                </form>';
+        return $out;
+    }
+
+    function showUnEnrollButton() {
+        $out =  '<form method="post">
+                    <input class="btn btn-danger" type="submit" name="Un-Enroll" value="Un-Enroll From This Course"/>
+                </form>';
+        return $out;
+    }
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -67,12 +136,47 @@
                     <p class="card__description">
                         John Doe
                     </p>
-                    <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
+                    <p class="card__description" style="font-size: 1.3rem;">
+                        <?php 
+                            echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                            findTotalNumberOfEnrolledStudents($con, "EnrolledStudentsHTML") .
+                            '</span>' . 
+                            " Student(s) Currently Enrolled";
+                        ?>
+                    </p>
+                    <p class="card__apply card__link" href="#">
+                    <?php
+                        if($is_enrolled) {
+                            $user_name = $user_data['user_name'];
+                            echo helloMessage($user_name);
+                        } else {
+                            if(isset($_POST['EnrollNow'])) {
+                                $res = doEnrolling($con, $user_data, "EnrolledStudentsHTML");
+                                echo $res['out'];
+                                if ($res['status']) {
+                                    $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./coursepage-html.php";</script>';
+                                }
+                                
+                            } else {
+                                echo showEnrollButton();
+                            }
+                        }
+                    ?>
+                    </p>
                 </div>
             </section>
-            <section>
-
-            </section>
+            <center>
+            <?php 
+                if ($is_enrolled) {
+                    if(isset($_POST['Un-Enroll'])) {
+                        echo doUnEnrolling($con, $user_data, "EnrolledStudentsHTML");
+                    } else {
+                       echo showUnEnrollButton();
+                    }
+                }
+            ?>
+            </center>
         </article>
         <section class="card-container">
             <h1 class="card-container-title">Course Reference Materials</h1>
@@ -542,7 +646,7 @@
                     </article>
                 </li>
             </ul>
-        </section>
+        </section>    
     </div>
     <footer>
         <!-- Footer legal -->
