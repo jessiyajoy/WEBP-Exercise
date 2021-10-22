@@ -18,6 +18,19 @@ function check_login($con){
     die;
 }
 
+function check_enrolledincourse($con, $curr_course, $user_id) {
+    if($curr_course == 'HTML') {
+        $sql = "SELECT * FROM EnrolledStudentsHTML WHERE user_id = '$user_id' limit 1";
+        $result = mysqli_query($con, $sql);
+        if($result && mysqli_num_rows($result) > 0) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
+}
+
 function random_num($length)
 {
     $text = "";
