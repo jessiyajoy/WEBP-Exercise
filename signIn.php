@@ -10,8 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-    // echo $_POST['password'];
-    // echo $_POST['email'];
+    //echo $_POST['password'];
+    //echo $_POST['email'];
+
+    $genErr ="";
 
     if(!empty($email) && !empty($pass))
     {
@@ -33,11 +35,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 }
             }
         } 
-        echo "Please enter valid username or password 1";
+        //echo "Please enter valid username or password 1";
+        $genErr = "*Enter valid username or password!";
     }
     else
     {
-        echo "Please enter valid username or password 2";
+        $genErr = "*Enter valid username or password!";
+        //echo "Please enter valid username or password 2";
     }
 }
 
@@ -52,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
     <link rel="stylesheet" href="style/navBarFooter.css" />
-    <link rel="stylesheet" href="style/signinStyle.css" />
+    <link rel="stylesheet" href="style/signStyle.css" />
    
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
@@ -68,7 +72,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 <li><a href="contactus.html#">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.php"><button>Register</button></a>
+        <a class="cta" href="registerPage.html#"><button>Register</button></a>
         <!-- <a class="cta" href="#"><button>Login</button></a> -->
     </header>
     
@@ -76,15 +80,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <div class="text">
             <h1>Sign in</h1>
             <p>Stay updated on all your courses</p>
+            
         </div>
         <form method="post">
             <div class="user-input">
+            <div class="error"> <?php echo $genErr;?> </div>
                 <div class="input">
-                    <input type="text" name="email" id="email" required />
+                    <input type="text" name="email" id="email" value = "<?php echo $email;?>" required />
                     <label for="email">Email</label>
                 </div>
                 <div class="input">
-                    <input type="password" name="password" id="password" required />
+                    <input type="password" name="password" id="password" value = "<?php echo $pass;?>" required />
                     <label for="password">
                         Password
                     </label>

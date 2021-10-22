@@ -89,7 +89,20 @@ body{
     text-decoration: underline;
 }
 
-.container button{
+form input[type=submit] {
+    background-color: #2980B9;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    /* margin-left: 1px; */
+    cursor: pointer;
+    
+}
+
+
+/* .container button{
     height: 50px;
     background: #2980B9;
     outline: none;
@@ -98,7 +111,7 @@ body{
     color: #fff;
     font-size: 1rem;
     font-weight: bolder;
-}
+} */
 
 .join-link{
     font-size: 0.8rem;
@@ -115,7 +128,12 @@ body{
     text-decoration: underline; 
 }
 
-
+.error {
+    color: #c92432;
+    display:block;
+    font-size: 0.8rem; 
+    margin-bottom: 3px; 
+}
     
  
 

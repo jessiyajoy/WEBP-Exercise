@@ -1,15 +1,16 @@
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     /* font-family: 'Lato'; */
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato';
 }
 
 body{
-    background: url(images/circlepencil.jpg);
+    background: url(images/img7.jpg);
     background-size: cover;
-    height: 400px;
+    /* height: 400px; */
 }
 
 .container{
@@ -17,27 +18,28 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     padding: 1rem;
-    width: 320px;
-    height: 400px;
+    width: 350px;
+    height: 500px;
     border-radius: 7px; 
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.9);
     box-shadow: 0 10px 15px rgba(179,179,179,0.7);
     position: absolute;
     top: 50%;
-    left:80%;
+    left:50%;
     transform: translate(-50%,-50%);
 }
 
 .text p{
     font-size: 0.8rem;
     padding-top: 0.3rem;
+    margin-bottom: 10px;
 }
 
 .input{
     position: relative;
     width: 100%;
     height: 50px; 
-    margin-bottom: 0.7rem; 
+    margin-bottom: 1rem; 
 } 
 
 .user-input input{
@@ -45,6 +47,7 @@ body{
     height: 50px;
     padding-top: 1.1rem;
     padding-left: 9px;
+    
     outline: none;
     border: 1px solid #8c8c8c;
     border-radius: 3px;
@@ -69,9 +72,10 @@ body{
 }
 
 .input input:focus {
-	border-width: 2px;
-	border-color: #2980B9;
+    border-width: 2px;
+    border-color: #2980B9;
 }
+
 
 .forgot-password-link{
     text-decoration: none;
@@ -89,7 +93,19 @@ body{
     text-decoration: underline;
 }
 
-.container button{
+form input[type=submit] {
+    background-color: #2980B9;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    /* margin: 4px 2px; */
+    margin-left: 100px;
+    cursor: pointer;
+    
+}
+
+/* .container button{
     height: 50px;
     background: #2980B9;
     outline: none;
@@ -98,25 +114,56 @@ body{
     color: #fff;
     font-size: 1rem;
     font-weight: bolder;
-}
+} */
 
 .join-link{
     font-size: 0.8rem;
+    text-align:center;
+    margin-top:10px;
+    /* margin-bottom:20px; */
 }
 
-.join-now{
+.terms{
+    font-size: 0.7rem;
+    text-align: left;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+ 
+}
+
+.join-now, .privacy-policy{
     text-decoration: none;
     color: #2980B9;
     font-size: 0.8rem;
     
 }
 
-.join-now:hover{
+.privacy-policy{
+    font-size: 0.7rem;
+}
+
+.join-now:hover, .privacy-policy:hover{
     text-decoration: underline; 
 }
 
+.error {
+    color: #c92432;
+    display:block;
+    font-size: 0.75rem; 
+    margin-bottom: 10px;
+}
 
-    
- 
+/* .input[data-error] input{
+border-color: #c92432;
+color: #c92432;
+background: #fffafa;
+} */
 
-
+.input[data-error]::after{
+    content: attr(data-error);
+    font-size: 0.75rem;
+    color: #c92432;
+    display: block;
+    margin: 10px,0;
+} 

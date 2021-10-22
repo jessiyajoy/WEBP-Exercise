@@ -47,4 +47,12 @@ function random_num($length)
 
     return $text;
 }
+
+function clean_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 ?>
