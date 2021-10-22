@@ -10,6 +10,12 @@
 
     # utility functions
 
+    function findTotalNumberOfEnrolledStudents ($con, $table) {
+        $sql = "SELECT * FROM $table";
+        $result = mysqli_query($con, $sql);
+        return mysqli_num_rows($result);
+    }
+
     function helloMessage($user_name) {
         $out =  '<div class="alert alert-primary" role="alert"> Hey ' . $user_name . ', See all updates below.</div>';
         return $out;
@@ -130,6 +136,14 @@
                     <p class="card__description">
                         John Doe
                     </p>
+                    <p class="card__description" style="font-size: 1.3rem;">
+                        <?php 
+                            echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                            findTotalNumberOfEnrolledStudents($con, "EnrolledStudentsHTML") .
+                            '</span>' . 
+                            " Student(s) Currently Enrolled";
+                        ?>
+                    </p>
                     <p class="card__apply card__link" href="#">
                     <?php
                         if($is_enrolled) {
@@ -141,6 +155,7 @@
                                 echo $res['out'];
                                 if ($res['status']) {
                                     $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./coursepage-html.php";</script>';
                                 }
                                 
                             } else {
