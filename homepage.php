@@ -22,13 +22,6 @@ $user_data = check_login($con);
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
-    <!-- Icons -->
-    <link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
-    <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-
-    <!-- Argon CSS -->
-    <link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -60,19 +53,13 @@ $user_data = check_login($con);
         <a class="cta" href="logout.php"><button>Logout</button></a>
     </header>
 
-    <!-- search bar -->
-    <!-- <div class="search">
-        <input type="text" class="searchTerm" placeholder="">
-        <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-        </button>
-    </div> -->
-
     <section class="header-section">
         <!-- <div class="search-bar"> -->
         <div class="search-box">
             <button id="search-button" class="btn-search" onclick="searchHandler()"><i class="fas fa-search"></i></button>
-            <input type="text" id="live_search" class="input-search" placeholder="Search for courses, users etc...">
+            <form>
+                <input type="text" id="query" class="input-search" placeholder="Search for courses, users etc...">
+            </form>
         </div>
 
         <div id="search_result">

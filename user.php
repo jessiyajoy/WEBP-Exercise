@@ -20,7 +20,9 @@
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
           <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Hi there! Meet Aria</h1>
+            <?php
+            echo "<h1 class=\"display-2 text-white\">Hi there! Meet ", $_GET['user_name'], "</h1>";
+            ?>
             <p class="text-white mt-0 mb-5"> This page displays information made public by the user. 
               For more information about the user or for any queries, connect using the contact details given in the page.
             </p>
@@ -65,11 +67,13 @@
                 </div>
               </div>
               <div class="text-center">
-                <h3>
-                  Aria
-                </h3>
+                <?php
+                echo "<h3>", $_GET['user_name'], "</h3>";
+                ?>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Feroke, Calicut
+                <?php
+                  echo "<i class=\"ni location_pin mr-2\"></i> user id : ", $_GET['user_id'];
+                ?>
                 </div>
                 <div class="h5 mt-4">
                   <i class="ni business_briefcase-24 mr-2"></i>Computer Science and Engineering Student
@@ -79,7 +83,9 @@
                 </div>
                 <hr class="my-4">
                 <p> </p>
-                <a href="mailto: aria@gmail.com">aria@gmail.com</a>
+                <?php
+                echo "<a href=\"mailto: ", $_GET['email'], "\">", $_GET['email'], "</a>";
+                ?>
               </div>
             </div>
           </div>
