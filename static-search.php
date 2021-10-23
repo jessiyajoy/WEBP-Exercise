@@ -3,7 +3,7 @@
  
   if (isset($_POST['query'])) {
 
-      $query1 = "SELECT user_name, email FROM Users WHERE user_name LIKE '{$_POST['query']}%' LIMIT 10";
+      $query1 = "SELECT user_name, email, user_id FROM Users WHERE user_name LIKE '{$_POST['query']}%' LIMIT 10";
       $result1 = mysqli_query($con, $query1);
     if (mysqli_num_rows($result1) > 0) {
         while ($row = $result1->fetch_assoc()) {
@@ -15,7 +15,7 @@
         <div class="col ml--2">
             <h4 class="mb-0">
 <?php
-                echo "<a href=\"#\">", $row['user_name'], "</a>";
+                echo "<a href=\"user.php?user_name=", $row['user_name'], "&email=", $row['email'], "&user_id=", $row['user_id'],"\">", $row['user_name'], "</a>";
 ?>
             </h4>
             <span class="text-success">●</span>
@@ -31,9 +31,9 @@
 ?>
             </h6>
         </div>
-        <a href="#" class="goto">
-            View User
-        </a>
+<?php
+        echo "<a href=\"user.php?user_name=", $row['user_name'], "&email=", $row['email'], "&user_id=", $row['user_id'],"\" class=\"goto\">View User</a>";
+?>
     </li>
 <?php
       }
