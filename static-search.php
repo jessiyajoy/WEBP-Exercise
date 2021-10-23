@@ -25,7 +25,7 @@
             <h5>
                 Contact details
             </h5>
-            <h6>
+            <h6 style="color:grey">
 <?php
                     echo $row['email'];
 ?>
@@ -59,7 +59,7 @@
                 <h5>
                     Description
                 </h5>
-                <h6>
+                <h6 style="color:grey">
 <?php
                     echo $row['description'];
 ?>
