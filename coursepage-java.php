@@ -68,22 +68,21 @@
                     <h2 class="card__title"><?php echo $course_name ?></h2>
                     <div style="display:flex;">
                         <div style="flex:3">
-                            <p class="card__item-title">
-                                About
-                            </p>
-                            <p class="card__description">
-                                HTML is the foundation of all web pages. Without HTML, you wouldn’t be able to organize text or
-                                add images or videos to your web pages. HTML is the beginning of everything you need to know to
-                                create engaging web pages!
-                                You will learn all the common HTML tags used to structure HTML pages, the skeleton of all
-                                websites. You will also be able to create HTML tables to present tabular data efficiently.
-                            </p>
-                            <p class="card__item-title">
-                                Instructor
-                            </p>
-                            <p class="card__description">
-                                John Doe
-                            </p>
+                        <p class="card__item-title">
+                            About
+                        </p>
+                        <p class="card__description">
+                            Advanced Java Programming course is an advanced level course in Java that can be taken by anyone
+                            with some previous coding experience,
+                            After completing the course, you will be proficient in Java 8 and Java 11.
+                            You will also learn to build advanced industry grade Java applications employing various core JAVA concepts.
+                        </p>
+                        <p class="card__item-title">
+                            Instructor
+                        </p>
+                        <p class="card__description">
+                            John Doe
+                        </p>
                         </div>
                         <div style="flex:2; margin-left:30px">
                             <p class="card__item-title">
@@ -159,501 +158,510 @@
                 echo 'style="display:none"';
             }
         ?>>
-            <section class="card-container">
-                <h1 class="card-container-title">Course Reference Materials</h1>
-                <ul>
-                    <li>
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    Ref-1 : Design and Build Websites
+        <section class="card-container">
+            <h1 class="card-container-title">Course Reference Materials</h1>
+            <ul>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Ref 1 : Advanced Java
+                            </h3>
+                            <time class="basic-card-header__time">
+                                23 <br>
+                                Jun
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
                                 </h3>
-                                <time class="basic-card-header__time">
-                                    23 <br>
-                                    Jun
+                                <p>
+                                    Reference book - Advanced Java <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__info">
+                                    No Due Date
                                 </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content__synopsis">
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part0">
+                                <br>
+                                <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
-                                        Synopsis
+                                        Description
                                     </h3>
                                     <p>
-                                        HTML & CSS
-                                        Design and Build Websites
-                                        by Jon Ducket <br>
+                                        The book provides an exhaustive coverage of topics in advanced Java. 
+                                        It introduces important language features such as Reflection, JNI, template, AWT and swing, Security etc. 
+                                        It also focuses on core network programming concepts such as sockets, RMI, Mail, XML-RPC etc. 
+                                        The state-of-the-art concepts such as SOAP, Applet, Servlet, JSP, JDBC, Hibernate, JMS, J2EE, JNDI, CORBA, JSF etc have also been discussed. 
                                     </p>
                                 </section>
-                                <section class="basic-card-content__due-date">
-                                    <h3 class="basic-card-content__heading"> Due Date</h3>
-                                    <time class="basic-card-content__info">
-                                        No Due Date
-                                    </time>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a href="resources/Advanced Java.pdf">Download Advanced Java here</a>
+                                    </article>
                                 </section>
-                                <section class="collapse" class="basic-card-content__collapsible-part"
-                                    id="basic-card-content__collapsible-part0">
-                                    <br>
-                                    <section class="basic-card-content__description">
-                                        <h3 class="basic-card-content__heading">
-                                            Description
-                                        </h3>
-                                        <p>
-                                            ● Those who want to learn how to design and build websites from scratch <br>
-                                            ● Anyone who has a website (that may be built using a content management system,
-                                            blogging software, or an e-commerce platform) and wants more control over the appearance
-                                            of their pages
-                                        </p>
-                                    </section>
-                                    <section class="basic-card-content__articles">
-                                        <h3 class="basic-card-content__heading">Articles</h3>
-                                        <article>
-                                            <a href="resources/Python for Everybody.pdf">Download HTML & CSS by Duckett here</a>
-                                        </article>
-                                    </section>
-                                </section>
-                                <center>
-                                    <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                        href="#basic-card-content__collapsible-part0">
-                                        <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                                        <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
-                                    </a>
-                                </center>
-                            </div>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    HTML Assigment 1
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part0">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Java Assigment 1
+                            </h3>
+                            <time class="basic-card-header__time">
+                                26 <br>
+                                Jun
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
                                 </h3>
-                                <time class="basic-card-header__time">
-                                    26 <br>
-                                    Oct
+                                <p>
+                                    Introductory Assigment for Java <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__warning">
+                                    31 Jul
                                 </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content__synopsis">
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part1">
+                                <br>
+                                <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
-                                        Synopsis
+                                        Description
                                     </h3>
                                     <p>
-                                        Introductory Assigment for HTML <br>
+                                        In this assigment, you will firstly install and configure JDK 11, Intellij IDEA.
+                                        After completing the previous step, build a simple banking application in Java that has the following features :
+                                        simple bank operations like check balance, deposit, withdraw, exit, etc.
+                                        You may need to learn take input from the user using Scanner class, perform String manipulations, print in java, variables, if/else statements, methods, loops, etc. 
                                     </p>
                                 </section>
-                                <section class="basic-card-content__due-date">
-                                    <h3 class="basic-card-content__heading"> Due Date</h3>
-                                    <time class="basic-card-content__warning">
-                                        31 Nov
-                                    </time>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a
+                                            href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
+                                            1</a>
+                                    </article>
+                                    <article>
+                                        <a href="https://bell-sw.com/pages/downloads/">Download JDK 11 here</a>
+                                    </article>
                                 </section>
-                                <section class="collapse" class="basic-card-content__collapsible-part"
-                                    id="basic-card-content__collapsible-part1">
-                                    <br>
-                                    <section class="basic-card-content__description">
-                                        <h3 class="basic-card-content__heading">
-                                            Description
-                                        </h3>
-                                        <p>
-                                            HTML introductory assigment, Introduction, History, ARPANET, XHTML, HTTP connection, TCP
-                                            and Handshakes, Types of HTTP
-                                        </p>
-                                    </section>
-                                    <section class="basic-card-content__articles">
-                                        <h3 class="basic-card-content__heading">Articles</h3>
-                                        <article>
-                                            <a
-                                                href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
-                                                1</a>
-                                        </article>
-                                    </section>
-                                </section>
-                                <center>
-                                    <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                        href="#basic-card-content__collapsible-part1">
-                                        <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                                        <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
-                                    </a>
-                                </center>
-                            </div>
-                        </article>
-                    </li>
-                    <li>
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    HTML Assigment 2
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part1">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+                <li>
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                Java Assigment 2
+                            </h3>
+                            <time class="basic-card-header__time">
+                                15<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content__synopsis">
+                                <h3 class="basic-card-content__heading">
+                                    Synopsis
                                 </h3>
-                                <time class="basic-card-header__time">
-                                    29<br>
-                                    Oct
+                                <p>
+                                    Assigment 2 - Hungry Snake Game <br>
+                                </p>
+                            </section>
+                            <section class="basic-card-content__due-date">
+                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <time class="basic-card-content__warning">
+                                    31 Sept
                                 </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content__synopsis">
+                            </section>
+                            <section class="collapse" class="basic-card-content__collapsible-part"
+                                id="basic-card-content__collapsible-part2">
+                                <br>
+                                <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
-                                        Synopsis
+                                        Description
                                     </h3>
                                     <p>
-                                        Assigment 2 - HTML Tables and Forms <br>
+                                        In this assigment, you will build the classical hungry snake game in JAVA.
+                                        For those of you who are not familiar, in hungry snake game
+                                        a long serpent slithers across a limited field, obeying the player's orders (moving right, left, down, and up). 
+                                        with no way to stop it from moving. 
+                                        And the snake should not touch the boundaries and shouldn't bite itself or you'll die! 
+                                        Along the way, the creature encounters food that makes it even longer. As it grows, space gets more and more cramped.
                                     </p>
                                 </section>
-                                <section class="basic-card-content__due-date">
-                                    <h3 class="basic-card-content__heading"> Due Date</h3>
-                                    <time class="basic-card-content__warning">
-                                        1 Dec
-                                    </time>
+                                <section class="basic-card-content__articles">
+                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <article>
+                                        <a
+                                            href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
+                                            2</a>
+                                    </article>
+                                    <article>
+                                        <a href="https://bell-sw.com/pages/downloads/">Download JDK 11 here</a>
+                                    </article>
                                 </section>
-                                <section class="collapse" class="basic-card-content__collapsible-part"
-                                    id="basic-card-content__collapsible-part2">
-                                    <br>
-                                    <section class="basic-card-content__description">
+                            </section>
+                            <center>
+                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
+                                    href="#basic-card-content__collapsible-part2">
+                                    <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
+                                    <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                </a>
+                            </center>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </section>
+        <section class="card-container">
+            <h1 class="card-container-title">Recorded Sessions</h1>
+            <p class="btn course-sort-by-button">Categorize by Duration</p>
+
+            <!-- MENU FOR CATEGORIZING -->
+            <input type="radio" id="All" name="duration" value="All" checked>
+            <input type="radio" id="0-0.5hrs" name="duration" value="0-0.5hrs">
+            <input type="radio" id="0.5-1hrs" name="duration" value="0.5-1hrs">
+            <input type="radio" id="1-1.5hrs" name="duration" value="1-1.5hrs">
+            <input type="radio" id="1.5-plus-hrs" name="duration" value="1.5-plus-hrs">
+
+            <ol class="duration-filters">
+                <li>
+                    <label for="All">All</label>
+                </li>
+                <li>
+                    <label for="0-0.5hrs">0 - 0.5 hrs</label>
+                </li>
+                <li>
+                    <label for="0.5-1hrs">0.5 - 1 hrs</label>
+                </li>
+                <li>
+                    <label for="1-1.5hrs">1 - 1.5 hrs</label>
+                </li>
+                <li>
+                    <label for="1.5-plus-hrs">1.5+ hrs</label>
+                </li>
+            </ol>
+
+
+            <ul class="recorded-sessions-list">
+                <li data-duration="1-1.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                1. Introduction and IDE
+                            </h3>
+                            <time class="basic-card-header__time">
+                                15<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
                                         <h3 class="basic-card-content__heading">
-                                            Description
+                                            Synopsis
                                         </h3>
                                         <p>
-            
-                                            Learn all the syntax you need to create tables in your HTML documents. Learn about the
-                                            inner workings of an HTML form! Learn how to create your own form and integrate HTML5
-                                            validations.
+                                            Introductory Session for HTML, Basics and IDE Setup <br>
                                         </p>
                                     </section>
-                                    <section class="basic-card-content__articles">
-                                        <h3 class="basic-card-content__heading">Articles</h3>
-                                        <article>
-                                            <a
-                                                href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
-                                                2</a>
-                                        </article>
-                                        <article>
-                                            <a href="https://www.w3schools.com/html/">HTML refs available here</a>
-                                        </article>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 30 minutes
+                                        </time>
                                     </section>
                                 </section>
-                                <center>
-                                    <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                        href="#basic-card-content__collapsible-part2">
-                                        <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
-                                        <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
                                     </a>
-                                </center>
-                            </div>
-                        </article>
-                    </li>
-                </ul>
-            </section>
-            <section class="card-container">
-                <h1 class="card-container-title">Recorded Sessions</h1>
-                <p class="btn course-sort-by-button">Categorize by Duration</p>
+                                </section>
+                            </section>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="1-1.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                2. OOP concepts
+                            </h3>
+                            <time class="basic-card-header__time">
+                                17<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Constructors, Inheritance, Overloading, Encapsulation, Polymorphism, etc <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 05 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p>
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
+                            </section>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0.5-1hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                3. Java Network Programming
+                            </h3>
+                            <time class="basic-card-header__time">
+                                25<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Networking Overview, First Client and Server Apps, Multi Threaded Server, UDP Server and Client, 
+                                            HTTPUrlConnection
+                                            <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            50 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p>
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
+                            </section>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0-0.5hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                4. Java Collections
+                            </h3>
+                            <time class="basic-card-header__time">
+                                28<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Collections Framework - hashset, hashmap, arraylist, stack, queue, linked list and other relevant data structures <br>
+                                        </p>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            20 minutes
+                                        </time>
+                                    </section>
+                                </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
+                            </section>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="1.5-plus-hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                5. Concurrency in Java
+                            </h3>
+                            <time class="basic-card-header__time">
+                                29<br>
+                                Aug
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Concurrency and Threads Introduction, Java Runnable and Thread, Interrupt and Join, Thread Variables
+                                            and Synchronisation
 
-                <!-- MENU FOR CATEGORIZING -->
-                <input type="radio" id="All" name="duration" value="All" checked>
-                <input type="radio" id="0-0.5hrs" name="duration" value="0-0.5hrs">
-                <input type="radio" id="0.5-1hrs" name="duration" value="0.5-1hrs">
-                <input type="radio" id="1-1.5hrs" name="duration" value="1-1.5hrs">
-                <input type="radio" id="1.5-plus-hrs" name="duration" value="1.5-plus-hrs">
 
-                <ol class="duration-filters">
-                    <li>
-                        <label for="All">All</label>
-                    </li>
-                    <li>
-                        <label for="0-0.5hrs">0 - 0.5 hrs</label>
-                    </li>
-                    <li>
-                        <label for="0.5-1hrs">0.5 - 1 hrs</label>
-                    </li>
-                    <li>
-                        <label for="1-1.5hrs">1 - 1.5 hrs</label>
-                    </li>
-                    <li>
-                        <label for="1.5-plus-hrs">1.5+ hrs</label>
-                    </li>
-                </ol>
-
-
-                <ul class="recorded-sessions-list">
-                    <li data-duration="1-1.5hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    1. Introduction and IDE
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    15<br>
-                                    Aug
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                Introductory Session for HTML, Basics and IDE Setup <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                1 hour 30 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
                                         </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            1 hour 50 minutes
+                                        </time>
                                     </section>
                                 </section>
-                            </div>
-                        </article>
-                    </li>
-                    <li data-duration="1-1.5hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    2. Tags and History of HTML
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    17<br>
-                                    Aug
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                History, ARPANET, XHTML, HTTP connection, TCP
-                                                and Handshakes, Types of HTTP, HTML Tags and Design <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                1 hour 05 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
+                                </section>
+                            </section>
+                        </div>
+                    </article>
+                </li>
+                <li data-duration="0.5-1hrs">
+                    <article class="basic-card">
+                        <header class="basic-card-header">
+                            <h3 class="basic-card-header__title">
+                                6. Lambda Expressions
+                            </h3>
+                            <time class="basic-card-header__time">
+                                02<br>
+                                Sep
+                            </time>
+                        </header>
+                        <div class="basic-card-content">
+                            <section class="basic-card-content-section">
+                                <section class="basic-card-content__info-section">
+                                    <section class="basic-card-content__synopsis">
+                                        <h3 class="basic-card-content__heading">
+                                            Synopsis
+                                        </h3>
+                                        <p>
+                                            Lambda Expressions Introduction, Scope and Functional Programming, Functional Interfaces & Predicates and Chaining java.util.function Functions
                                         </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
+                                    </section>
+                                    <section class="basic-card-content__due-date">
+                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <time class="basic-card-content__info">
+                                            55 minutes
+                                        </time>
                                     </section>
                                 </section>
-                            </div>
-                        </article>
-                    </li>
-                    <li data-duration="0.5-1hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    3. HTML Tables and Forms
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    25<br>
-                                    Aug
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                HTML Tables, Forms, table data, table row, syntax, forms, form groups, validations etc. <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                50 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
-                                        </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
-                                    </section>
+                                <section class="basic-card-content__video-control-section">
+                                    <p style="margin-bottom: 0.2rem;">
+                                        Watch
+                                    </p>
+                                    <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
+                                        class="basic-card-video-button-container">
+                                        <i class="basic-card-video-button fas fa-play"></i>
+                                    </a>
                                 </section>
-                            </div>
-                        </article>
-                    </li>
-                    <li data-duration="0-0.5hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    4. Using the Console
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    28<br>
-                                    Aug
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                Using the console for alerts, exploring various available commands, testing console available in chromium <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                20 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
-                                        </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
-                                    </section>
-                                </section>
-                            </div>
-                        </article>
-                    </li>
-                    <li data-duration="1.5-plus-hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    5. Designing a card markup in html
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    29<br>
-                                    Aug
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                Markup for a card demonstrated, flexibility, re-usability, design choices and arrangement studied in depth <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                1 hour 50 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
-                                        </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
-                                    </section>
-                                </section>
-                            </div>
-                        </article>
-                    </li>
-                    <li data-duration="0.5-1hrs">
-                        <article class="basic-card">
-                            <header class="basic-card-header">
-                                <h3 class="basic-card-header__title">
-                                    6. HTML Semantic Elements
-                                </h3>
-                                <time class="basic-card-header__time">
-                                    02<br>
-                                    Sep
-                                </time>
-                            </header>
-                            <div class="basic-card-content">
-                                <section class="basic-card-content-section">
-                                    <section class="basic-card-content__info-section">
-                                        <section class="basic-card-content__synopsis">
-                                            <h3 class="basic-card-content__heading">
-                                                Synopsis
-                                            </h3>
-                                            <p>
-                                                Semantic HTML and their effective utilization <br>
-                                            </p>
-                                        </section>
-                                        <section class="basic-card-content__due-date">
-                                            <h3 class="basic-card-content__heading"> Duration </h3>
-                                            <time class="basic-card-content__info">
-                                                55 minutes
-                                            </time>
-                                        </section>
-                                    </section>
-                                    <section class="basic-card-content__video-control-section">
-                                        <p style="margin-bottom: 0.2rem;">
-                                            Watch
-                                        </p>
-                                        <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                            class="basic-card-video-button-container">
-                                            <i class="basic-card-video-button fas fa-play"></i>
-                                        </a>
-                                    </section>
-                                </section>
-                            </div>
-                        </article>
-                    </li>
-                </ul>
-                <div style="display:flex;align-items: center; justify-content: space-evenly;">
-                    <center>
-                        <?php 
-                            if ($is_enrolled) {
-                                if(isset($_POST['Un-Enroll'])) {
-                                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
-                                } else {
-                                echo showUnEnrollButton();
-                                }
-                            }
-                        ?>
-                    </center>
-                    <center <?php 
-                        if ($is_enrolled && $is_completed) {
-                            echo 'style="display:none;"';
-                        }
-                    ?>>
-                        <?php 
-                            if(isset($_POST['Completion'])) {
-                                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+                            </section>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+            <div style="display:flex;align-items: center; justify-content: space-evenly;">
+                <center>
+                    <?php 
+                        if ($is_enrolled) {
+                            if(isset($_POST['Un-Enroll'])) {
+                                echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
                             } else {
-                                echo completeCourseButton();
+                            echo showUnEnrollButton();
                             }
-                        ?>
-                    </center>
-                </div>
-            </section> 
+                        }
+                    ?>
+                </center>
+                <center <?php 
+                    if ($is_enrolled && $is_completed) {
+                        echo 'style="display:none;"';
+                    }
+                ?>>
+                    <?php 
+                        if(isset($_POST['Completion'])) {
+                            echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+                        } else {
+                            echo completeCourseButton();
+                        }
+                    ?>
+                </center>
+            </div>
+        </section>
         </div>
     </div>
     <footer>

@@ -555,3 +555,31 @@
 </body>
 
 </html>
+
+
+<div style="display:flex;align-items: center; justify-content: space-evenly;">
+    <center>
+        <?php 
+            if ($is_enrolled) {
+                if(isset($_POST['Un-Enroll'])) {
+                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                } else {
+                echo showUnEnrollButton();
+                }
+            }
+        ?>
+    </center>
+    <center <?php 
+        if ($is_enrolled && $is_completed) {
+            echo 'style="display:none;"';
+        }
+    ?>>
+        <?php 
+            if(isset($_POST['Completion'])) {
+                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+            } else {
+                echo completeCourseButton();
+            }
+        ?>
+    </center>
+</div>
