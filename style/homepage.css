@@ -107,7 +107,7 @@ body {
     font-weight: 800;
     padding-left: 5rem;
     align-self: flex-start;
-    padding-top: 5rem;
+    padding-top: 0rem;
 }
 
 /* COURSE CATEGORIES */
@@ -439,4 +439,29 @@ div .course-category button:hover {
 .goto:hover {
     background-color: #0c4368;
     color: white;
+}
+
+#s_results {
+    font-size: 20px;
+    margin-left: 45%;
+    margin-top: 2rem;
+    justify-self: flex-start;
+    align-self: flex-start;
+    display: none;
+    color: #241515;
+}
+
+#list-view {
+    align-self: flex-end;
+    font-family: 'Andada Pro', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5rem;
+    margin-left: 80rem;
+    color: white;
+    text-decoration: none;
+    border: none;
+    background-color: #2247ac;
+    padding: 0.8rem;
+    border-radius: 2rem;
 }
