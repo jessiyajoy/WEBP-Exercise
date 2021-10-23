@@ -45,6 +45,28 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 
+<style>
+    .course-contents-container {
+        width: 68%;
+    }
+    /* For Landscape Devices */
+@media only screen and (max-width: 1400px) {
+    .course-contents-container {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 4rem;
+    }
+}
+/* Compatibility for Portrait Devices */
+@media only screen and (max-width: 600px) {
+    .course-contents-container {
+        width:90%;
+        margin: auto;
+        margin-bottom: 4rem;
+    }
+}
+</style>
+
 <body style="background: url(./style/images/keys.jpg);
   backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
@@ -93,12 +115,12 @@
                                 <?php 
                                     $res_num = findTotalNumberOfEnrolledStudents($con, $curr_course_table);
                                     if ($res_num == 1) {
-                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700; margin-right: 15px">' . 
                                         $res_num .
                                         '</span>' . 
                                         " Student Currently Enrolled";
                                     } else {
-                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700; margin-right: 15px"">' . 
                                         $res_num .
                                         '</span>' . 
                                         " Students Currently Enrolled";
