@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@500;800&display=swap');
 
 body {
     /* background: rgb(240, 236, 236); */
@@ -8,7 +9,10 @@ body {
 }
 
 .header-section {
+    font-family: 'Andada Pro', serif;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     margin-left: 2.2rem;
     margin-right: 2.2rem;
@@ -37,24 +41,30 @@ body {
 }
 .input-search{
     height: 50px;
-    width: 50px;
+    /* width: 50px; */
     border-style: none;
     padding: 20px;
     font-size: 14px;
     letter-spacing: 2px;
     outline: none;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     transition: all .5s ease-in-out;
     background-color: white;
     color: white;
+
+    /* added now */
+    width: 500px;
+    background-color: white;
+    color:black;
 }
 .input-search::placeholder{
     color:rgba(0, 0, 0, 0.582);
     font-size: 14px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: 100;
     padding-left: 0.5rem;
-    display: none;
+    padding-bottom: 2rem;
+    /* display: none; */
 }
 .btn-search{
     width: 50px;
@@ -72,7 +82,11 @@ body {
     pointer-events: painted;  
 }
 
-.btn-search:focus ~ .input-search{
+#search_result {
+    width: 500px;
+}
+
+/* .btn-search:focus ~ .input-search{
     width: 300px;
     background-color: white;
     color: black;
@@ -83,14 +97,17 @@ body {
     background-color: white;
     color:black;
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-}
+} */
 
 /* COURSES OFFERED */
-.courses-title {
-    font-family: "Montserrat", sans-serif;
+#courses-title {
+    font-family: 'Andada Pro', serif;
     color: #444444;
-    font-weight:900;
-    font-size: 40;
+    font-size: 30px;
+    font-weight: 800;
+    padding-left: 5rem;
+    align-self: flex-start;
+    padding-top: 0rem;
 }
 
 /* COURSE CATEGORIES */
@@ -98,9 +115,9 @@ body {
     display: flex;
     position: relative;
     width: 100%;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Andada Pro', serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     color: #444444;
     justify-content: center;
     margin-top: 1rem;
@@ -346,7 +363,7 @@ div .course-category button:hover {
 }
 
 /* go to course button */
-a.goto-button {
+.goto-button {
     position: relative;
     display: flex;
     align-items: center;
@@ -363,7 +380,88 @@ a.goto-button {
     text-decoration: none;
 }
 
-a.goto-button:hover {
+.goto-button:hover {
     background-color: #dbd9d9;
     color: rgb(97, 95, 95);
+}
+
+.user-item {
+    width: 30%;
+    height: 10rem;
+    color:black;
+    margin: 1rem;
+}
+
+#user {
+    width: 6rem;
+    height: 8rem;
+    margin: 1rem;
+}
+
+.search_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.course-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50rem;
+    height: 10rem;
+    color:black;
+    margin: 1rem;
+}
+
+.goto {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+    padding: 2rem;
+    background-color: #0e8ce0;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    width: 10rem;
+    height: 2rem;
+    margin-left: 10rem;
+}
+
+.goto:hover {
+    background-color: #0c4368;
+    color: white;
+}
+
+#s_results {
+    font-size: 20px;
+    margin-left: 45%;
+    margin-top: 2rem;
+    justify-self: flex-start;
+    align-self: flex-start;
+    display: none;
+    color: #241515;
+}
+
+#list-view {
+    align-self: flex-end;
+    font-family: 'Andada Pro', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 5rem;
+    margin-left: 80rem;
+    color: white;
+    text-decoration: none;
+    border: none;
+    background-color: #2247ac;
+    padding: 0.8rem;
+    border-radius: 2rem;
 }
