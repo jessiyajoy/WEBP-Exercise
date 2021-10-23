@@ -1,11 +1,25 @@
-<html lang="en">
+<?php
+    session_start();
 
+    include_once("connection.php");
+    include_once("functions.php");
+
+    $course_name = "PYTHON";
+    $user_data = check_login($con);
+    $curr_course_table = 'EnrolledStudentsPYTHON';
+    $curr_course_page = 'coursepage-python.php';
+    $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
+    $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CSS Course Page</title>
+    <title><?php echo $course_name ?> Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -31,7 +45,8 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 
-<body>
+<body style="background: url(./style/images/keys.jpg);
+  backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
         <a id="logo" href="homepage.html#">LMS</a>
         <nav>
@@ -48,30 +63,96 @@
     <div class="course-contents-container">
         <article class="course-intro">
             <section class="course-intro">
-                <div class="card card-2">
+                <div class="card card-1">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
-                    <h2 class="card__title">CSS</h2>
-                    <p class="card__item-title">
-                        About
-                    </p>
+                    <h2 class="card__title"><?php echo $course_name ?></h2>
+                    <div style="display:flex;">
+                        <div style="flex:3">
+                        <p class="card__item-title">About</p>
                     <p class="card__description">
-                        You will learn many aspects of styling web pages! You’ll be able to set up the correct file
-                        structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
-                        able to customize the appearance of your web pages to suit your every need!
+                        Python for Everybody course and will introduce
+                        fundamental programming concepts including data
+                        structures, networked application program
+                        interfaces, and databases, using the Python
+                        programming language.
                     </p>
-                    <p class="card__item-title">
-                        Instructor
+                    <p class="card__item-title">Instructor</p>
+                    <p class="card__description">John Doe</p>
+                        </div>
+                        <div style="flex:2; margin-left:30px">
+                            <p class="card__item-title">
+                                Stats
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem;">
+                                <?php 
+                                    $res_num = findTotalNumberOfEnrolledStudents($con, $curr_course_table);
+                                    if ($res_num == 1) {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Student Currently Enrolled";
+                                    } else {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Students Currently Enrolled";
+                                    }
+                                ?>
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    32+
+                                </span>  
+                                    Recorded Sessions
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    10+
+                                </span>  
+                                    References Materials
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    15+
+                                </span>  
+                                    Planned Live Sessions for doubt clearing
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p class="card__apply card__link" href="#">
+                    <?php
+                        if($is_enrolled) {
+                            $user_name = $user_data['user_name'];
+                            if ($is_completed) {
+                                echo showCompletedMessage($user_name);
+                            } else {
+                                echo helloMessage($user_name);
+                            }
+                            
+                        } else {
+                            if(isset($_POST['EnrollNow'])) {
+                                $res = doEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                                echo $res['out'];
+                                if ($res['status']) {
+                                    $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./' . $curr_course_page . '";</script>';
+                                }
+                                
+                            } else {
+                                echo '<center>' . showEnrollButton() . '</center>';
+                            }
+                        }
+                    ?>
                     </p>
-                    <p class="card__description">
-                        Jane Doe
-                    </p>
-                    <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
                 </div>
             </section>
-            <section>
-
-            </section>
         </article>
+        <div <?php
+            if(!$is_enrolled) {
+                echo 'style="display:none"';
+            }
+        ?>>
         <section class="card-container">
             <h1 class="card-container-title">Course Reference Materials</h1>
             <ul>
@@ -79,10 +160,10 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                Ref-1 : CSS Text Book
+                                Ref 1 : Python for Everybody
                             </h3>
                             <time class="basic-card-header__time">
-                                23 <br>
+                                23 <br />
                                 Jun
                             </time>
                         </header>
@@ -92,38 +173,50 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Textbook/Tutorial Book for CSS to used for this course
+                                    Reference book - Python for Everybody
+                                    <br />
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <h3 class="basic-card-content__heading">
+                                    Due Date
+                                </h3>
                                 <time class="basic-card-content__info">
                                     No Due Date
                                 </time>
                             </section>
                             <section class="collapse" class="basic-card-content__collapsible-part"
                                 id="basic-card-content__collapsible-part0">
-                                <br>
+                                <br />
                                 <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
                                         Description
                                     </h3>
                                     <p>
-                                        This Textbook covers both the versions CSS1 and CSS2 and gives a complete understanding of CSS, starting from its basics to advanced concepts.
-                                    It helps both students as well as professionals who want to make their websites or personal blogs more attractive.
+                                        Data oriented approach - The overall
+                                        book structure is to get to doing
+                                        data analysis problems as quickly as
+                                        possible and have a series of
+                                        running examples and exercises about
+                                        data analysis from the very
+                                        beginning
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
-                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <h3 class="basic-card-content__heading">
+                                        Articles
+                                    </h3>
                                     <article>
-                                        <a href="resources/css_tutorial.pdf">Download the CSS Book
+                                        <a href="resources/Python for Everybody.pdf">Download Python For Everybody
                                             here</a>
                                     </article>
                                 </section>
                             </section>
                             <center>
-                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                    href="#basic-card-content__collapsible-part0">
+                                <a class="
+                                            basic-card-collapse-button
+                                            collapsed
+                                        " data-toggle="collapse" href="#basic-card-content__collapsible-part0">
                                     <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
                                     <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
                                 </a>
@@ -135,11 +228,11 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 1
+                                Python Assigment 1
                             </h3>
                             <time class="basic-card-header__time">
-                                26 <br>
-                                Oct
+                                26 <br />
+                                Jun
                             </time>
                         </header>
                         <div class="basic-card-content">
@@ -148,41 +241,60 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Introductory Assigment for CSS <br>
+                                    Introductory Assigment for Python <br />
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <h3 class="basic-card-content__heading">
+                                    Due Date
+                                </h3>
                                 <time class="basic-card-content__warning">
-                                    31 Nov
+                                    31 Jul
                                 </time>
                             </section>
                             <section class="collapse" class="basic-card-content__collapsible-part"
                                 id="basic-card-content__collapsible-part1">
-                                <br>
+                                <br />
                                 <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
                                         Description
                                     </h3>
                                     <p>
-                                        CSS introductory assigment, syntax, typography, margins, size, padding, styling elements - div, h, p, a etc and tinkering with display attribute
+                                        This assigment familiarizes you with
+                                        Installation and Development
+                                        Environment of Python; an easy to
+                                        learn, powerful programming
+                                        language. It has efficient
+                                        high-level data structures and a
+                                        simple but effective approach to
+                                        object-oriented programming.
+                                        Python’s elegant syntax and dynamic
+                                        typing, together with its
+                                        interpreted nature, make it an ideal
+                                        language for scripting and rapid
+                                        application development in many
+                                        areas on most platforms.
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
-                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <h3 class="basic-card-content__heading">
+                                        Articles
+                                    </h3>
                                     <article>
                                         <a
                                             href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
                                             1</a>
                                     </article>
                                     <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="https://www.python.org/">Download Python-3 here</a>
                                     </article>
                                 </section>
                             </section>
                             <center>
-                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                    href="#basic-card-content__collapsible-part1">
+                                <a class="
+                                            basic-card-collapse-button
+                                            collapsed
+                                        " data-toggle="collapse" href="#basic-card-content__collapsible-part1">
                                     <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
                                     <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
                                 </a>
@@ -194,11 +306,11 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 2
+                                Python Assigment 2
                             </h3>
                             <time class="basic-card-header__time">
-                                29<br>
-                                Oct
+                                15<br />
+                                Aug
                             </time>
                         </header>
                         <div class="basic-card-content">
@@ -207,42 +319,61 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Assigment 2 - CSS Box Model & Colors <br>
+                                    Assigment 2 - Variables and Simple
+                                    if-else <br />
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
-                                <h3 class="basic-card-content__heading"> Due Date</h3>
+                                <h3 class="basic-card-content__heading">
+                                    Due Date
+                                </h3>
                                 <time class="basic-card-content__warning">
-                                    1 Dec
+                                    31 Sept
                                 </time>
                             </section>
                             <section class="collapse" class="basic-card-content__collapsible-part"
                                 id="basic-card-content__collapsible-part2">
-                                <br>
+                                <br />
                                 <section class="basic-card-content__description">
                                     <h3 class="basic-card-content__heading">
                                         Description
                                     </h3>
                                     <p>
-                                        CSS Box Model challenge exercises. Box Model to position HTML elements on your web page. Flex box, grids, their styling, orientation, wrapping etc.
-                                        Also you will learn all about choosing and setting CSS colors using a variety of techniques.
+                                        This assigment familiarizes you with
+                                        Installation and Development
+                                        Environment of Python; an easy to
+                                        learn, powerful programming
+                                        language. It has efficient
+                                        high-level data structures and a
+                                        simple but effective approach to
+                                        object-oriented programming.
+                                        Python’s elegant syntax and dynamic
+                                        typing, together with its
+                                        interpreted nature, make it an ideal
+                                        language for scripting and rapid
+                                        application development in many
+                                        areas on most platforms.
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
-                                    <h3 class="basic-card-content__heading">Articles</h3>
+                                    <h3 class="basic-card-content__heading">
+                                        Articles
+                                    </h3>
                                     <article>
                                         <a
                                             href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
                                             2</a>
                                     </article>
                                     <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="https://www.python.org/">Python refs available here</a>
                                     </article>
                                 </section>
                             </section>
                             <center>
-                                <a class="basic-card-collapse-button collapsed" data-toggle="collapse"
-                                    href="#basic-card-content__collapsible-part2">
+                                <a class="
+                                            basic-card-collapse-button
+                                            collapsed
+                                        " data-toggle="collapse" href="#basic-card-content__collapsible-part2">
                                     <span class="if-collapsed"><i class="fas fa-chevron-down"></i></span>
                                     <span class="if-not-collapsed"><i class="fas fa-chevron-up"></i></span>
                                 </a>
@@ -287,10 +418,10 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                1. Introduction and Setup
+                                1. Introduction and Set-up
                             </h3>
                             <time class="basic-card-header__time">
-                                15<br>
+                                15<br />
                                 Aug
                             </time>
                         </header>
@@ -298,27 +429,43 @@
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Introductory Session for CSS, Basic Setup, Syntax and Examples <br>
+                                            Introductory Session for Python,
+                                            Basics and Installaiton & Setup
+                                            <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
                                             1 hour 30 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -329,10 +476,10 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                2. CSS Attributes
+                                2. Variables and Constants
                             </h3>
                             <time class="basic-card-header__time">
-                                17<br>
+                                17<br />
                                 Aug
                             </time>
                         </header>
@@ -340,27 +487,43 @@
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS Attributes, font size, color, background, margin, padding, centering content, styling divs <br>
+                                            Python Variables, Scope Rules,
+                                            Constants, types, basic classes
+                                            etc <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
                                             1 hour 05 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -371,10 +534,10 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                3. CSS Box Model
+                                3. Python Constructs
                             </h3>
                             <time class="basic-card-header__time">
-                                25<br>
+                                25<br />
                                 Aug
                             </time>
                         </header>
@@ -382,28 +545,43 @@
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            HTML Tables, Forms, table data, table row, syntax, forms, form groups,
-                                            validations etc. <br>
+                                            if-elif-else, while, for, list
+                                            manipulations, string in-depth
+                                            <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
                                             50 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -414,38 +592,53 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                4. CSS Colors
+                                4. Python While Loop
                             </h3>
                             <time class="basic-card-header__time">
-                                28<br>
-                                Aug
+                                15<br />
+                                Sep
                             </time>
                         </header>
                         <div class="basic-card-content">
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about choosing and setting CSS colors and color palettes using a variety of techniques. <br>
+                                            while loop in depth, handling edge cases, efficiency considerations etc.
+                                            <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
-                                            20 minutes
+                                            30 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -456,38 +649,53 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                5. CSS Typography
+                                5. Python For Loop
                             </h3>
                             <time class="basic-card-header__time">
-                                29<br>
-                                Aug
+                                10<br />
+                                Oct
                             </time>
                         </header>
                         <div class="basic-card-content">
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about CSS typography, such as how to include fonts from other sources and how to style your text. <br>
+                                            for loop in depth, clean syntax and efficient implementation and complexity calculation
+                                            <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
-                                            1 hour 50 minutes
+                                            1 hr 50 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -498,38 +706,53 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                6. CSS Flexboxes and Responsiveness
+                                6. Python Classes Intro
                             </h3>
                             <time class="basic-card-header__time">
-                                02<br>
-                                Sep
+                                12<br />
+                                Oct
                             </time>
                         </header>
                         <div class="basic-card-content">
                             <section class="basic-card-content-section">
                                 <section class="basic-card-content__info-section">
                                     <section class="basic-card-content__synopsis">
-                                        <h3 class="basic-card-content__heading">
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS grids, grid sizing, @media commands, responsiveness <br>
+                                            Self variable, class constructor and OOP concepts - Encapsulation, Abstraction, Polymorphism and Inheritance 
+                                            <br />
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
-                                        <h3 class="basic-card-content__heading"> Duration </h3>
+                                        <h3 class="
+                                                    basic-card-content__heading
+                                                ">
+                                            Duration
+                                        </h3>
                                         <time class="basic-card-content__info">
                                             55 minutes
                                         </time>
                                     </section>
                                 </section>
-                                <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                <section class="
+                                            basic-card-content__video-control-section
+                                        ">
+                                    <p style="margin-bottom: 0.2rem">
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-                                        class="basic-card-video-button-container">
-                                        <i class="basic-card-video-button fas fa-play"></i>
+                                        class="
+                                                basic-card-video-button-container
+                                            ">
+                                        <i class="
+                                                    basic-card-video-button
+                                                    fas
+                                                    fa-play
+                                                "></i>
                                     </a>
                                 </section>
                             </section>
@@ -537,27 +760,7 @@
                     </article>
                 </li>
             </ul>
-        </section>
-    </div>
-    <footer>
-        <!-- Footer legal -->
-        <section class="ft-legal">
-            <ul class="ft-legal-list">
-                <li><a href="terms.html#">Terms &amp; Conditions</a></li>
-                <li><a href="privacy.html#">Privacy Policy</a></li>
-                <li><a href="aboutus.html#">About Us</a></li>
-                <li><a href="contactus.html#">Help Support</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
-                <li>&copy; 2021 Learning Management System</li>
-            </ul>
-        </section>
-    </footer>
-</body>
-
-</html>
-
-
-<div style="display:flex;align-items: center; justify-content: space-evenly;">
+            <div style="display:flex;align-items: center; justify-content: space-evenly;">
     <center>
         <?php 
             if ($is_enrolled) {
@@ -583,3 +786,22 @@
         ?>
     </center>
 </div>
+        </section>
+        </div>
+    </div>
+    <footer>
+        <!-- Footer legal -->
+        <section class="ft-legal">
+            <ul class="ft-legal-list">
+                <li><a href="terms.html#">Terms &amp; Conditions</a></li>
+                <li><a href="privacy.html#">Privacy Policy</a></li>
+                <li><a href="aboutus.html#">About Us</a></li>
+                <li><a href="contactus.html#">Help Support</a></li>
+                <li><a href="contactus.html#">Contact</a></li>
+                <li>&copy; 2021 Learning Management System</li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

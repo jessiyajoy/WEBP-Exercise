@@ -1,11 +1,25 @@
-<html lang="en">
+<?php
+    session_start();
 
+    include_once("connection.php");
+    include_once("functions.php");
+
+    $course_name = "JAVA";
+    $user_data = check_login($con);
+    $curr_course_table = 'EnrolledStudentsJAVA';
+    $curr_course_page = 'coursepage-java.php';
+    $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
+    $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CSS Course Page</title>
+    <title><?php echo $course_name ?> Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -31,7 +45,8 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 
-<body>
+<body style="background: url(./style/images/keys.jpg);
+  backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
         <a id="logo" href="homepage.html#">LMS</a>
         <nav>
@@ -48,30 +63,101 @@
     <div class="course-contents-container">
         <article class="course-intro">
             <section class="course-intro">
-                <div class="card card-2">
+                <div class="card card-3">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
-                    <h2 class="card__title">CSS</h2>
-                    <p class="card__item-title">
-                        About
+                    <h2 class="card__title"><?php echo $course_name ?></h2>
+                    <div style="display:flex;">
+                        <div style="flex:3">
+                        <p class="card__item-title">
+                            About
+                        </p>
+                        <p class="card__description">
+                            Advanced Java Programming course is an advanced level course in Java that can be taken by anyone
+                            with some previous coding experience,
+                            After completing the course, you will be proficient in Java 8 and Java 11.
+                            You will also learn to build advanced industry grade Java applications employing various core JAVA concepts.
+                        </p>
+                        <p class="card__item-title">
+                            Instructor
+                        </p>
+                        <p class="card__description">
+                            John Doe
+                        </p>
+                        </div>
+                        <div style="flex:2; margin-left:30px">
+                            <p class="card__item-title">
+                                Stats
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem;">
+                                <?php 
+                                    $res_num = findTotalNumberOfEnrolledStudents($con, $curr_course_table);
+                                    if ($res_num == 1) {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Student Currently Enrolled";
+                                    } else {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Students Currently Enrolled";
+                                    }
+                                ?>
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    32+
+                                </span>  
+                                    Recorded Sessions
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    10+
+                                </span>  
+                                    References Materials
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    15+
+                                </span>  
+                                    Planned Live Sessions for doubt clearing
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p class="card__apply card__link" href="#">
+                    <?php
+                        if($is_enrolled) {
+                            $user_name = $user_data['user_name'];
+                            if ($is_completed) {
+                                echo showCompletedMessage($user_name);
+                            } else {
+                                echo helloMessage($user_name);
+                            }
+                            
+                        } else {
+                            if(isset($_POST['EnrollNow'])) {
+                                $res = doEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                                echo $res['out'];
+                                if ($res['status']) {
+                                    $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./' . $curr_course_page . '";</script>';
+                                }
+                                
+                            } else {
+                                echo '<center>' . showEnrollButton() . '</center>';
+                            }
+                        }
+                    ?>
                     </p>
-                    <p class="card__description">
-                        You will learn many aspects of styling web pages! You’ll be able to set up the correct file
-                        structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
-                        able to customize the appearance of your web pages to suit your every need!
-                    </p>
-                    <p class="card__item-title">
-                        Instructor
-                    </p>
-                    <p class="card__description">
-                        Jane Doe
-                    </p>
-                    <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
                 </div>
             </section>
-            <section>
-
-            </section>
         </article>
+        <div <?php
+            if(!$is_enrolled) {
+                echo 'style="display:none"';
+            }
+        ?>>
         <section class="card-container">
             <h1 class="card-container-title">Course Reference Materials</h1>
             <ul>
@@ -79,7 +165,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                Ref-1 : CSS Text Book
+                                Ref 1 : Advanced Java
                             </h3>
                             <time class="basic-card-header__time">
                                 23 <br>
@@ -92,7 +178,7 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Textbook/Tutorial Book for CSS to used for this course
+                                    Reference book - Advanced Java <br>
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
@@ -109,15 +195,16 @@
                                         Description
                                     </h3>
                                     <p>
-                                        This Textbook covers both the versions CSS1 and CSS2 and gives a complete understanding of CSS, starting from its basics to advanced concepts.
-                                    It helps both students as well as professionals who want to make their websites or personal blogs more attractive.
+                                        The book provides an exhaustive coverage of topics in advanced Java. 
+                                        It introduces important language features such as Reflection, JNI, template, AWT and swing, Security etc. 
+                                        It also focuses on core network programming concepts such as sockets, RMI, Mail, XML-RPC etc. 
+                                        The state-of-the-art concepts such as SOAP, Applet, Servlet, JSP, JDBC, Hibernate, JMS, J2EE, JNDI, CORBA, JSF etc have also been discussed. 
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
                                     <h3 class="basic-card-content__heading">Articles</h3>
                                     <article>
-                                        <a href="resources/css_tutorial.pdf">Download the CSS Book
-                                            here</a>
+                                        <a href="resources/Advanced Java.pdf">Download Advanced Java here</a>
                                     </article>
                                 </section>
                             </section>
@@ -135,11 +222,11 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 1
+                                Java Assigment 1
                             </h3>
                             <time class="basic-card-header__time">
                                 26 <br>
-                                Oct
+                                Jun
                             </time>
                         </header>
                         <div class="basic-card-content">
@@ -148,13 +235,13 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Introductory Assigment for CSS <br>
+                                    Introductory Assigment for Java <br>
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
                                 <h3 class="basic-card-content__heading"> Due Date</h3>
                                 <time class="basic-card-content__warning">
-                                    31 Nov
+                                    31 Jul
                                 </time>
                             </section>
                             <section class="collapse" class="basic-card-content__collapsible-part"
@@ -165,7 +252,10 @@
                                         Description
                                     </h3>
                                     <p>
-                                        CSS introductory assigment, syntax, typography, margins, size, padding, styling elements - div, h, p, a etc and tinkering with display attribute
+                                        In this assigment, you will firstly install and configure JDK 11, Intellij IDEA.
+                                        After completing the previous step, build a simple banking application in Java that has the following features :
+                                        simple bank operations like check balance, deposit, withdraw, exit, etc.
+                                        You may need to learn take input from the user using Scanner class, perform String manipulations, print in java, variables, if/else statements, methods, loops, etc. 
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
@@ -176,7 +266,7 @@
                                             1</a>
                                     </article>
                                     <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="https://bell-sw.com/pages/downloads/">Download JDK 11 here</a>
                                     </article>
                                 </section>
                             </section>
@@ -194,11 +284,11 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 2
+                                Java Assigment 2
                             </h3>
                             <time class="basic-card-header__time">
-                                29<br>
-                                Oct
+                                15<br>
+                                Aug
                             </time>
                         </header>
                         <div class="basic-card-content">
@@ -207,13 +297,13 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Assigment 2 - CSS Box Model & Colors <br>
+                                    Assigment 2 - Hungry Snake Game <br>
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
                                 <h3 class="basic-card-content__heading"> Due Date</h3>
                                 <time class="basic-card-content__warning">
-                                    1 Dec
+                                    31 Sept
                                 </time>
                             </section>
                             <section class="collapse" class="basic-card-content__collapsible-part"
@@ -224,8 +314,12 @@
                                         Description
                                     </h3>
                                     <p>
-                                        CSS Box Model challenge exercises. Box Model to position HTML elements on your web page. Flex box, grids, their styling, orientation, wrapping etc.
-                                        Also you will learn all about choosing and setting CSS colors using a variety of techniques.
+                                        In this assigment, you will build the classical hungry snake game in JAVA.
+                                        For those of you who are not familiar, in hungry snake game
+                                        a long serpent slithers across a limited field, obeying the player's orders (moving right, left, down, and up). 
+                                        with no way to stop it from moving. 
+                                        And the snake should not touch the boundaries and shouldn't bite itself or you'll die! 
+                                        Along the way, the creature encounters food that makes it even longer. As it grows, space gets more and more cramped.
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
@@ -236,7 +330,7 @@
                                             2</a>
                                     </article>
                                     <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="https://bell-sw.com/pages/downloads/">Download JDK 11 here</a>
                                     </article>
                                 </section>
                             </section>
@@ -287,7 +381,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                1. Introduction and Setup
+                                1. Introduction and IDE
                             </h3>
                             <time class="basic-card-header__time">
                                 15<br>
@@ -302,7 +396,7 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Introductory Session for CSS, Basic Setup, Syntax and Examples <br>
+                                            Introductory Session for HTML, Basics and IDE Setup <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -329,7 +423,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                2. CSS Attributes
+                                2. OOP concepts
                             </h3>
                             <time class="basic-card-header__time">
                                 17<br>
@@ -344,7 +438,7 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS Attributes, font size, color, background, margin, padding, centering content, styling divs <br>
+                                            Constructors, Inheritance, Overloading, Encapsulation, Polymorphism, etc <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -355,7 +449,7 @@
                                     </section>
                                 </section>
                                 <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                    <p>
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
@@ -371,7 +465,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                3. CSS Box Model
+                                3. Java Network Programming
                             </h3>
                             <time class="basic-card-header__time">
                                 25<br>
@@ -386,8 +480,9 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            HTML Tables, Forms, table data, table row, syntax, forms, form groups,
-                                            validations etc. <br>
+                                            Networking Overview, First Client and Server Apps, Multi Threaded Server, UDP Server and Client, 
+                                            HTTPUrlConnection
+                                            <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -398,7 +493,7 @@
                                     </section>
                                 </section>
                                 <section class="basic-card-content__video-control-section">
-                                    <p style="margin-bottom: 0.2rem;">
+                                    <p>
                                         Watch
                                     </p>
                                     <a href="https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
@@ -414,7 +509,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                4. CSS Colors
+                                4. Java Collections
                             </h3>
                             <time class="basic-card-header__time">
                                 28<br>
@@ -429,7 +524,7 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about choosing and setting CSS colors and color palettes using a variety of techniques. <br>
+                                            Collections Framework - hashset, hashmap, arraylist, stack, queue, linked list and other relevant data structures <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -456,7 +551,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                5. CSS Typography
+                                5. Concurrency in Java
                             </h3>
                             <time class="basic-card-header__time">
                                 29<br>
@@ -471,7 +566,10 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about CSS typography, such as how to include fonts from other sources and how to style your text. <br>
+                                            Concurrency and Threads Introduction, Java Runnable and Thread, Interrupt and Join, Thread Variables
+                                            and Synchronisation
+
+
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -498,7 +596,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                6. CSS Flexboxes and Responsiveness
+                                6. Lambda Expressions
                             </h3>
                             <time class="basic-card-header__time">
                                 02<br>
@@ -513,7 +611,7 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS grids, grid sizing, @media commands, responsiveness <br>
+                                            Lambda Expressions Introduction, Scope and Functional Programming, Functional Interfaces & Predicates and Chaining java.util.function Functions
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -537,7 +635,34 @@
                     </article>
                 </li>
             </ul>
+            <div style="display:flex;align-items: center; justify-content: space-evenly;">
+                <center>
+                    <?php 
+                        if ($is_enrolled) {
+                            if(isset($_POST['Un-Enroll'])) {
+                                echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                            } else {
+                            echo showUnEnrollButton();
+                            }
+                        }
+                    ?>
+                </center>
+                <center <?php 
+                    if ($is_enrolled && $is_completed) {
+                        echo 'style="display:none;"';
+                    }
+                ?>>
+                    <?php 
+                        if(isset($_POST['Completion'])) {
+                            echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+                        } else {
+                            echo completeCourseButton();
+                        }
+                    ?>
+                </center>
+            </div>
         </section>
+        </div>
     </div>
     <footer>
         <!-- Footer legal -->
@@ -555,31 +680,3 @@
 </body>
 
 </html>
-
-
-<div style="display:flex;align-items: center; justify-content: space-evenly;">
-    <center>
-        <?php 
-            if ($is_enrolled) {
-                if(isset($_POST['Un-Enroll'])) {
-                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
-                } else {
-                echo showUnEnrollButton();
-                }
-            }
-        ?>
-    </center>
-    <center <?php 
-        if ($is_enrolled && $is_completed) {
-            echo 'style="display:none;"';
-        }
-    ?>>
-        <?php 
-            if(isset($_POST['Completion'])) {
-                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
-            } else {
-                echo completeCourseButton();
-            }
-        ?>
-    </center>
-</div>

@@ -1,11 +1,25 @@
-<html lang="en">
+<?php
+    session_start();
 
+    include_once("connection.php");
+    include_once("functions.php");
+
+    $course_name = "CSS";
+    $user_data = check_login($con);
+    $curr_course_table = 'EnrolledStudentsCSS';
+    $curr_course_page = 'coursepage-css.php';
+    $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
+    $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CSS Course Page</title>
+    <title><?php echo $course_name ?> Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -31,7 +45,8 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 
-<body>
+<body style="background: url(./style/images/keys.jpg);
+  backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
         <a id="logo" href="homepage.html#">LMS</a>
         <nav>
@@ -50,28 +65,98 @@
             <section class="course-intro">
                 <div class="card card-2">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
-                    <h2 class="card__title">CSS</h2>
-                    <p class="card__item-title">
+                    <h2 class="card__title"><?php echo $course_name ?></h2>
+                    <div style="display:flex;">
+                        <div style="flex:3">
+                        <p class="card__item-title">
                         About
+                        </p>
+                        <p class="card__description">
+                            You will learn many aspects of styling web pages! You’ll be able to set up the correct file
+                            structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
+                            able to customize the appearance of your web pages to suit your every need!
+                        </p>
+                        <p class="card__item-title">
+                            Instructor
+                        </p>
+                        <p class="card__description">
+                            Jane Doe
+                        </p>
+                        </div>
+                        <div style="flex:2; margin-left:30px">
+                            <p class="card__item-title">
+                                Stats
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem;">
+                                <?php 
+                                    $res_num = findTotalNumberOfEnrolledStudents($con, $curr_course_table);
+                                    if ($res_num == 1) {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Student Currently Enrolled";
+                                    } else {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Students Currently Enrolled";
+                                    }
+                                ?>
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    32+
+                                </span>  
+                                    Recorded Sessions
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    10+
+                                </span>  
+                                    References Materials
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    15+
+                                </span>  
+                                    Planned Live Sessions for doubt clearing
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p class="card__apply card__link" href="#">
+                    <?php
+                        if($is_enrolled) {
+                            $user_name = $user_data['user_name'];
+                            if ($is_completed) {
+                                echo showCompletedMessage($user_name);
+                            } else {
+                                echo helloMessage($user_name);
+                            }
+                            
+                        } else {
+                            if(isset($_POST['EnrollNow'])) {
+                                $res = doEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                                echo $res['out'];
+                                if ($res['status']) {
+                                    $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./' . $curr_course_page . '";</script>';
+                                }
+                                
+                            } else {
+                                echo '<center>' . showEnrollButton() . '</center>';
+                            }
+                        }
+                    ?>
                     </p>
-                    <p class="card__description">
-                        You will learn many aspects of styling web pages! You’ll be able to set up the correct file
-                        structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
-                        able to customize the appearance of your web pages to suit your every need!
-                    </p>
-                    <p class="card__item-title">
-                        Instructor
-                    </p>
-                    <p class="card__description">
-                        Jane Doe
-                    </p>
-                    <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
                 </div>
             </section>
-            <section>
-
-            </section>
         </article>
+        <div <?php
+            if(!$is_enrolled) {
+                echo 'style="display:none"';
+            }
+        ?>>
         <section class="card-container">
             <h1 class="card-container-title">Course Reference Materials</h1>
             <ul>
@@ -537,7 +622,34 @@
                     </article>
                 </li>
             </ul>
+            <div style="display:flex;align-items: center; justify-content: space-evenly;">
+                    <center>
+                        <?php 
+                            if ($is_enrolled) {
+                                if(isset($_POST['Un-Enroll'])) {
+                                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                                } else {
+                                echo showUnEnrollButton();
+                                }
+                            }
+                        ?>
+                    </center>
+                    <center <?php 
+                        if ($is_enrolled && $is_completed) {
+                            echo 'style="display:none;"';
+                        }
+                    ?>>
+                        <?php 
+                            if(isset($_POST['Completion'])) {
+                                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+                            } else {
+                                echo completeCourseButton();
+                            }
+                        ?>
+                    </center>
+                </div>
         </section>
+        </div>
     </div>
     <footer>
         <!-- Footer legal -->
@@ -555,31 +667,3 @@
 </body>
 
 </html>
-
-
-<div style="display:flex;align-items: center; justify-content: space-evenly;">
-    <center>
-        <?php 
-            if ($is_enrolled) {
-                if(isset($_POST['Un-Enroll'])) {
-                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
-                } else {
-                echo showUnEnrollButton();
-                }
-            }
-        ?>
-    </center>
-    <center <?php 
-        if ($is_enrolled && $is_completed) {
-            echo 'style="display:none;"';
-        }
-    ?>>
-        <?php 
-            if(isset($_POST['Completion'])) {
-                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
-            } else {
-                echo completeCourseButton();
-            }
-        ?>
-    </center>
-</div>

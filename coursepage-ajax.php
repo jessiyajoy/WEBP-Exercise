@@ -4,10 +4,10 @@
     include_once("connection.php");
     include_once("functions.php");
 
-    $course_name = "HTML";
+    $course_name = "AJAX";
     $user_data = check_login($con);
-    $curr_course_table = 'EnrolledStudentsHTML';
-    $curr_course_page = 'coursepage-html.php';
+    $curr_course_table = 'EnrolledStudentsAJAX';
+    $curr_course_page = 'coursepage-ajax.php';
     $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
     $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
 
@@ -63,27 +63,25 @@
     <div class="course-contents-container">
         <article class="course-intro">
             <section class="course-intro">
-                <div class="card card-3">
+                <div class="card card-4">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
                     <h2 class="card__title"><?php echo $course_name ?></h2>
                     <div style="display:flex;">
                         <div style="flex:3">
-                            <p class="card__item-title">
-                                About
-                            </p>
-                            <p class="card__description">
-                                HTML is the foundation of all web pages. Without HTML, you wouldn’t be able to organize text or
-                                add images or videos to your web pages. HTML is the beginning of everything you need to know to
-                                create engaging web pages!
-                                You will learn all the common HTML tags used to structure HTML pages, the skeleton of all
-                                websites. You will also be able to create HTML tables to present tabular data efficiently.
-                            </p>
-                            <p class="card__item-title">
-                                Instructor
-                            </p>
-                            <p class="card__description">
-                                John Doe
-                            </p>
+                        <p class="card__item-title">
+                            About
+                        </p>
+                        <p class="card__description">
+                            You will learn many aspects of styling web pages! You’ll be able to set up the correct file
+                            structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
+                            able to customize the appearance of your web pages to suit your every need!
+                        </p>
+                        <p class="card__item-title">
+                            Instructor
+                        </p>
+                        <p class="card__description">
+                            Jane Doe
+                        </p>
                         </div>
                         <div style="flex:2; margin-left:30px">
                             <p class="card__item-title">

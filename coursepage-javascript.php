@@ -1,11 +1,25 @@
-<html lang="en">
+<?php
+    session_start();
 
+    include_once("connection.php");
+    include_once("functions.php");
+
+    $course_name = "JAVASCRIPT";
+    $user_data = check_login($con);
+    $curr_course_table = 'EnrolledStudentsJS';
+    $curr_course_page = 'coursepage-javascript.php';
+    $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
+    $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
+
+?>
+
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>CSS Course Page</title>
+    <title><?php echo $course_name ?> Course Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -31,7 +45,8 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 
-<body>
+<body style="background: url(./style/images/keys.jpg);
+  backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
         <a id="logo" href="homepage.html#">LMS</a>
         <nav>
@@ -48,30 +63,101 @@
     <div class="course-contents-container">
         <article class="course-intro">
             <section class="course-intro">
-                <div class="card card-2">
+                <div class="card card-5">
                     <div class="card__icon"><i class="fas fa-bolt"></i></div>
-                    <h2 class="card__title">CSS</h2>
-                    <p class="card__item-title">
-                        About
+                    <h2 class="card__title"><?php echo $course_name ?></h2>
+                    <div style="display:flex;">
+                        <div style="flex:3">
+                        <p class="card__item-title">
+                            About
+                        </p>
+                        <p class="card__description">
+                            JavaScript is among the most powerful and flexible programming languages of the web. It powers
+                            the dynamic behavior on most websites, including this one. You will learn programming
+                            fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts
+                            covered in these lessons lay the foundation for using JavaScript in any environment.
+                        </p>
+                        <p class="card__item-title">
+                            Instructor
+                        </p>
+                        <p class="card__description">
+                            Jane Doe
+                        </p>
+                        </div>
+                        <div style="flex:2; margin-left:30px">
+                            <p class="card__item-title">
+                                Stats
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem;">
+                                <?php 
+                                    $res_num = findTotalNumberOfEnrolledStudents($con, $curr_course_table);
+                                    if ($res_num == 1) {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Student Currently Enrolled";
+                                    } else {
+                                        echo '<span style="font-size: 1.8rem; font-weight: 700;">' . 
+                                        $res_num .
+                                        '</span>' . 
+                                        " Students Currently Enrolled";
+                                    }
+                                ?>
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    32+
+                                </span>  
+                                    Recorded Sessions
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    10+
+                                </span>  
+                                    References Materials
+                            </p>
+                            <p class="card__description" style="font-size: 1.3rem">
+                                <span style="font-size: 1.8rem; font-weight: 700;">
+                                    15+
+                                </span>  
+                                    Planned Live Sessions for doubt clearing
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <p class="card__apply card__link" href="#">
+                    <?php
+                        if($is_enrolled) {
+                            $user_name = $user_data['user_name'];
+                            if ($is_completed) {
+                                echo showCompletedMessage($user_name);
+                            } else {
+                                echo helloMessage($user_name);
+                            }
+                            
+                        } else {
+                            if(isset($_POST['EnrollNow'])) {
+                                $res = doEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                                echo $res['out'];
+                                if ($res['status']) {
+                                    $is_enrolled = TRUE;
+                                    echo '<script type="text/javascript">location.href = "./' . $curr_course_page . '";</script>';
+                                }
+                                
+                            } else {
+                                echo '<center>' . showEnrollButton() . '</center>';
+                            }
+                        }
+                    ?>
                     </p>
-                    <p class="card__description">
-                        You will learn many aspects of styling web pages! You’ll be able to set up the correct file
-                        structure, edit text and colors, and create attractive layouts. With these skills, you’ll be
-                        able to customize the appearance of your web pages to suit your every need!
-                    </p>
-                    <p class="card__item-title">
-                        Instructor
-                    </p>
-                    <p class="card__description">
-                        Jane Doe
-                    </p>
-                    <p class="card__apply card__link" href="#">Apply Now<i class="fas fa-arrow-right"></i></p>
                 </div>
             </section>
-            <section>
-
-            </section>
         </article>
+        <div <?php
+            if(!$is_enrolled) {
+                echo 'style="display:none"';
+            }
+        ?>>
         <section class="card-container">
             <h1 class="card-container-title">Course Reference Materials</h1>
             <ul>
@@ -79,7 +165,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                Ref-1 : CSS Text Book
+                                Ref-1 : JavaScript Programmer's Reference
                             </h3>
                             <time class="basic-card-header__time">
                                 23 <br>
@@ -92,7 +178,7 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Textbook/Tutorial Book for CSS to used for this course
+                                    JavaScript Programmer's Reference by Alexei White
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
@@ -109,15 +195,22 @@
                                         Description
                                     </h3>
                                     <p>
-                                        This Textbook covers both the versions CSS1 and CSS2 and gives a complete understanding of CSS, starting from its basics to advanced concepts.
-                                    It helps both students as well as professionals who want to make their websites or personal blogs more attractive.
+                                        This book is intended to be more than a simple collection of tutorials and
+                                        reference material. It’s meant to be a comprehensive and accurate resource for
+                                        both new and experienced developers. It’s the kind
+                                        of book you’ll want to keep next to your computer at all times to flip through
+                                        to remind yourself of techniques, browser compatibility, and in-depth
+                                        explanation on some of the most bleeding-edge features of the language. It moves
+                                        from the basics of syntax, general characteristics, and flow-control, to
+                                        advanced approaches to object oriented inheritance, offline storage, Ajax, and
+                                        debugging. Still, you don’t need to read this book from cover-to-cover.
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
                                     <h3 class="basic-card-content__heading">Articles</h3>
                                     <article>
-                                        <a href="resources/css_tutorial.pdf">Download the CSS Book
-                                            here</a>
+                                        <a href="resources/JavaScript_ Programmer's Reference.pdf">Download JavaScript
+                                            Programmer's Reference here</a>
                                     </article>
                                 </section>
                             </section>
@@ -135,7 +228,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 1
+                                Ref-2 : JavaScript Cheat Sheet
                             </h3>
                             <time class="basic-card-header__time">
                                 26 <br>
@@ -148,7 +241,7 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Introductory Assigment for CSS <br>
+                                    A complete and comprehensive cheat sheet for JavaScript
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
@@ -165,18 +258,18 @@
                                         Description
                                     </h3>
                                     <p>
-                                        CSS introductory assigment, syntax, typography, margins, size, padding, styling elements - div, h, p, a etc and tinkering with display attribute
+
+                                        Javascript Basics & Variables, Arrays, Operators, Functions, Loops, If -
+                                        Else Statements, Strings, Regular Expressions, Numbers and Math, Dealing
+                                        with Dates
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
                                     <h3 class="basic-card-content__heading">Articles</h3>
                                     <article>
-                                        <a
-                                            href="https://drive.google.com/file/d/1T6TpZ8z_Pjq-fv2yyIepXjUUmrfN2IYJ/view?usp=sharing">Assignment
-                                            1</a>
-                                    </article>
-                                    <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="resources/Javascript-Cheat-Sheet.pdf">Javascript-Cheat-Sheet is
+                                            available here
+                                        </a>
                                     </article>
                                 </section>
                             </section>
@@ -194,7 +287,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                CSS Assigment 2
+                                JS Assigment 1
                             </h3>
                             <time class="basic-card-header__time">
                                 29<br>
@@ -207,7 +300,7 @@
                                     Synopsis
                                 </h3>
                                 <p>
-                                    Assigment 2 - CSS Box Model & Colors <br>
+                                    JavaScript Assignment 1 - Basic Syntax of the language
                                 </p>
                             </section>
                             <section class="basic-card-content__due-date">
@@ -224,8 +317,11 @@
                                         Description
                                     </h3>
                                     <p>
-                                        CSS Box Model challenge exercises. Box Model to position HTML elements on your web page. Flex box, grids, their styling, orientation, wrapping etc.
-                                        Also you will learn all about choosing and setting CSS colors using a variety of techniques.
+                                        JS Challenges revolving around basic syntax, variables, constructs, functions
+                                        and recursion.
+
+                                        Learn how to use if, else if, else, switch, and ternary syntax to control the
+                                        flow of a program in JavaScript.
                                     </p>
                                 </section>
                                 <section class="basic-card-content__articles">
@@ -236,7 +332,8 @@
                                             2</a>
                                     </article>
                                     <article>
-                                        <a href="https://www.w3schools.com/w3css/defaulT.asp">CSS refs available here</a>
+                                        <a href="https://www.w3schools.com/js/">JavaScript refs available
+                                            here</a>
                                     </article>
                                 </section>
                             </section>
@@ -287,7 +384,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                1. Introduction and Setup
+                                1. Introduction and IDE
                             </h3>
                             <time class="basic-card-header__time">
                                 15<br>
@@ -302,7 +399,8 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Introductory Session for CSS, Basic Setup, Syntax and Examples <br>
+                                            Introductory Session for JavaScript, Basic IDE Setup, Syntax and Examples
+                                            <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -329,7 +427,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                2. CSS Attributes
+                                2. JS Conditionals
                             </h3>
                             <time class="basic-card-header__time">
                                 17<br>
@@ -344,7 +442,8 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS Attributes, font size, color, background, margin, padding, centering content, styling divs <br>
+                                            Learn how to use if, else if, else, switch, and ternary syntax to control
+                                            the flow of a program in JavaScript. <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -371,7 +470,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                3. CSS Box Model
+                                3. JS Functions
                             </h3>
                             <time class="basic-card-header__time">
                                 25<br>
@@ -386,8 +485,9 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            HTML Tables, Forms, table data, table row, syntax, forms, form groups,
-                                            validations etc. <br>
+
+                                            Learn about JavaScript function syntax, passing data to functions, the
+                                            return keyword, ES6 arrow functions, and concise body syntax. <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -414,7 +514,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                4. CSS Colors
+                                4. JavaScript on Client-Side
                             </h3>
                             <time class="basic-card-header__time">
                                 28<br>
@@ -429,13 +529,14 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about choosing and setting CSS colors and color palettes using a variety of techniques. <br>
+                                            Idea of using JS on the client-side, intoduction to frameworks - React and
+                                            Angular <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
                                         <h3 class="basic-card-content__heading"> Duration </h3>
                                         <time class="basic-card-content__info">
-                                            20 minutes
+                                            30 minutes
                                         </time>
                                     </section>
                                 </section>
@@ -456,7 +557,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                5. CSS Typography
+                                5. Arrays and Iterators
                             </h3>
                             <time class="basic-card-header__time">
                                 29<br>
@@ -471,7 +572,9 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            Learn all about CSS typography, such as how to include fonts from other sources and how to style your text. <br>
+
+                                            In this course, you will learn about arrays, a data structure in JavaScript
+                                            used to store lists of data. You will also learn how to use iterator methods to simplify the process of looping over arrays<br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -498,7 +601,7 @@
                     <article class="basic-card">
                         <header class="basic-card-header">
                             <h3 class="basic-card-header__title">
-                                6. CSS Flexboxes and Responsiveness
+                                6. Javascript on the Server-Side
                             </h3>
                             <time class="basic-card-header__time">
                                 02<br>
@@ -513,7 +616,7 @@
                                             Synopsis
                                         </h3>
                                         <p>
-                                            CSS grids, grid sizing, @media commands, responsiveness <br>
+                                            Idea of using Javascript on the Server-Side, introduction to NodeJS <br>
                                         </p>
                                     </section>
                                     <section class="basic-card-content__due-date">
@@ -537,7 +640,34 @@
                     </article>
                 </li>
             </ul>
+            <div style="display:flex;align-items: center; justify-content: space-evenly;">
+                <center>
+                    <?php 
+                        if ($is_enrolled) {
+                            if(isset($_POST['Un-Enroll'])) {
+                                echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
+                            } else {
+                            echo showUnEnrollButton();
+                            }
+                        }
+                    ?>
+                </center>
+                <center <?php 
+                    if ($is_enrolled && $is_completed) {
+                        echo 'style="display:none;"';
+                    }
+                ?>>
+                    <?php 
+                        if(isset($_POST['Completion'])) {
+                            echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
+                        } else {
+                            echo completeCourseButton();
+                        }
+                    ?>
+                </center>
+            </div>
         </section>
+        </div>
     </div>
     <footer>
         <!-- Footer legal -->
@@ -555,31 +685,3 @@
 </body>
 
 </html>
-
-
-<div style="display:flex;align-items: center; justify-content: space-evenly;">
-    <center>
-        <?php 
-            if ($is_enrolled) {
-                if(isset($_POST['Un-Enroll'])) {
-                    echo doUnEnrolling($con, $user_data, $curr_course_table, $curr_course_page);
-                } else {
-                echo showUnEnrollButton();
-                }
-            }
-        ?>
-    </center>
-    <center <?php 
-        if ($is_enrolled && $is_completed) {
-            echo 'style="display:none;"';
-        }
-    ?>>
-        <?php 
-            if(isset($_POST['Completion'])) {
-                echo doCompletion($con, $user_data, $curr_course_table, $curr_course_page);
-            } else {
-                echo completeCourseButton();
-            }
-        ?>
-    </center>
-</div>
