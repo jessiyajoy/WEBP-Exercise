@@ -48,4 +48,74 @@ if ($con->query($sql) === TRUE) {
   echo "Error creating table: " . $con->error;
 }
 
+$sql = "CREATE TABLE IF NOT EXISTS EnrolledStudentsCSS (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  user_id BIGINT,
+  user_name VARCHAR(100) NOT NULL,
+  enrolled_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  completed INT
+  )";
+
+if ($con->query($sql) === TRUE) {
+  echo "Table EnrolledStudentsCSS created successfully<br>";
+} else {
+  echo "Error creating table: " . $con->error;
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS EnrolledStudentsAJAX (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  user_id BIGINT,
+  user_name VARCHAR(100) NOT NULL,
+  enrolled_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  completed INT
+  )";
+
+if ($con->query($sql) === TRUE) {
+  echo "Table EnrolledStudentsAJAX created successfully<br>";
+} else {
+  echo "Error creating table: " . $con->error;
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS EnrolledStudentsJAVA (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  user_id BIGINT,
+  user_name VARCHAR(100) NOT NULL,
+  enrolled_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  completed INT
+  )";
+
+if ($con->query($sql) === TRUE) {
+  echo "Table EnrolledStudentsJAVA created successfully<br>";
+} else {
+  echo "Error creating table: " . $con->error;
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS EnrolledStudentsJS (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  user_id BIGINT,
+  user_name VARCHAR(100) NOT NULL,
+  enrolled_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  completed INT
+  )";
+
+if ($con->query($sql) === TRUE) {
+  echo "Table EnrolledStudentsJS created successfully<br>";
+} else {
+  echo "Error creating table: " . $con->error;
+}
+
+$sql = "CREATE TABLE IF NOT EXISTS EnrolledStudentsPYTHON (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  user_id BIGINT,
+  user_name VARCHAR(100) NOT NULL,
+  enrolled_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  completed INT
+  )";
+
+if ($con->query($sql) === TRUE) {
+  echo "Table EnrolledStudentsPYTHON created successfully<br>";
+} else {
+  echo "Error creating table: " . $con->error;
+}
+
 ?>
