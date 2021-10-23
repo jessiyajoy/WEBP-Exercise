@@ -4,10 +4,10 @@
     include_once("connection.php");
     include_once("functions.php");
 
-    $course_name = "HTML";
+    $course_name = "JAVASCRIPT";
     $user_data = check_login($con);
-    $curr_course_table = 'EnrolledStudentsHTML';
-    $curr_course_page = 'coursepage-html.php';
+    $curr_course_table = 'EnrolledStudentsJS';
+    $curr_course_page = 'coursepage-javascript.php';
     $is_enrolled = check_enrolledincourse($con, $curr_course_table, $user_data['user_id']);
     $is_completed = check_completion($con, $curr_course_table, $user_data['user_id']);
 
