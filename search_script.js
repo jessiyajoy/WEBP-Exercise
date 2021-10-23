@@ -5,6 +5,7 @@
 $(document).ready(function () {
     $("#query").keyup(function () {
     
+        $('#s_results').css('display', 'none');
             $('#search_static').css('display', 'none');
             var query = $(this).val();
             if (query != "") {
@@ -36,11 +37,13 @@ function searchHandler () {
                 query: query
             },
             success: function (data) {
+                
                 $('#search_static').html(data);
                 $('#search_static').css('display', 'block');
-
+                
                 
                 $('#search_result').css('display', 'none');
+                $('#s_results').css('display', 'block');
             }
         });
     } else {

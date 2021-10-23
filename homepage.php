@@ -65,10 +65,13 @@ $user_data = check_login($con);
         <div id="search_result">
         </div>
 
+        <h4 id="s_results">Search Results : </h4> <br>
         <div id="search_static">
+            
         </div>
-
+        <p class="courses-subtitle"> <a id="list-view" href="user_list.php"> View registered users </a></p>
         <p id="courses-title">COURSES OFFERED</p>
+        
             <!-- <p class="search-title">Search for courses</p> -->
         <!-- </div> -->
         <p class="courses-subtitle">COURSE CATEGORIES</p>
