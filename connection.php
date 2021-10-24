@@ -3,7 +3,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "lms";
+$dbname = "LMS";   #was "lms" before
 
 $con = new mysqli('localhost', $dbuser, $dbpass, $dbname);
 if ($con->connect_error) {

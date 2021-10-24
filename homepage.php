@@ -37,16 +37,30 @@ $user_data = check_login($con);
     <script type="text/javascript" src="./search_script.js"></script>
     <title>Home Page</title>
 </head>
+<style>
+  header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%; 
+    /* background-color: #2f3e60 */
+
+    /* background-color: rgba(47,62,96,255); */
+
+    background-color: rgba(41, 128, 185);
+    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
+  } 
+</style>
 <body>
 
     <!-- nav b -->
     <header>
-        <a id="logo" href="homepage.html#">LMS</a>
+        <a id="logo" href="homepage.php">LMS</a>
         <nav>
             <ul class="nav__links-left">
-                <li><a href="homepage.html#">Home</a></li>
-                <li><a href="aboutus.html#">About</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
+                <li><a href="homepage.php">Home</a></li>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
         <a class="cta" href="logout.php"><button>Logout</button></a>
@@ -342,11 +356,11 @@ $user_data = check_login($con);
         <!-- Footer legal -->
         <section class="ft-legal">
             <ul class="ft-legal-list">
-                <li><a href="terms.html#">Terms &amp; Conditions</a></li>
-                <li><a href="privacy.html#">Privacy Policy</a></li>
-                <li><a href="aboutus.html#">About Us</a></li>
-                <li><a href="contactus.html#">Help Support</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
+                <li><a href="terms.php">Terms &amp; Conditions</a></li>
+                <li><a href="privacy.php">Privacy Policy</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="contactus.php">Help Support</a></li>
+                <li><a href="contactus.php">Contact</a></li>
                 <li>&copy; 2021 Learning Management System</li>
             </ul>
         </section>

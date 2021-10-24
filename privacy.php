@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data = check_login_noSignIn($con);
+
+if($user_data == -1){
+    header("Location: privacy.html");
+    die;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,19 +25,19 @@
     
 </head>
 <style>
-    header{
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 1px 5%; 
-      /* background-color: #2f3e60 */
-  
-      /* background-color: rgba(47,62,96,255); */
-  
-      background-color: rgba(41, 128, 185);
-      /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
-    } 
-  </style>
+  header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%; 
+    /* background-color: #2f3e60 */
+
+    /* background-color: rgba(47,62,96,255); */
+
+    background-color: rgba(41, 128, 185);
+    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
+  } 
+</style>
 <body>
     <header>
         <a id="logo" href="homepage.php">LMS</a>
@@ -33,9 +48,11 @@
                 <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.php"><button>Register</button></a>
-        <a class="cta" href="signIn.php"><button>Login</button></a>
+        <!-- <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="signIn.html#"><button>Login</button></a> -->
+        <a class="cta" href="logout.php"><button>Logout</button></a>
     </header>
+
     
     <div class="container">
         <h2>Privacy Policy</h2>

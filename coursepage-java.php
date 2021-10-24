@@ -45,6 +45,16 @@
     <link rel="stylesheet" href="style/card.css" />
 </head>
 <style>
+    header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%; 
+
+    background-color: rgba(41, 128, 185,0.8); 
+    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%) */
+  } 
+  
     .course-contents-container {
         width: 68%;
     }
@@ -68,17 +78,17 @@
 <body style="background: url(./style/images/keys.jpg);
   backdrop-filter: blur(15px);background-blend-mode: lighten">
     <header>
-        <a id="logo" href="homepage.html#">LMS</a>
+        <a id="logo" href="homepage.php">LMS</a>
         <nav>
             <ul class="nav__links-left">
-                <li><a href="homepage.html#">Home</a></li>
-                <li><a href="aboutus.html#">About</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
+                <li><a href="homepage.php">Home</a></li>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="mainPage.html#"><button>Logout</button></a>
-        <!-- <a class="cta" href="registerPage.html#"><button>Register</button></a>
-        <a class="cta" href="signIn.html#"><button>Login</button></a> -->
+        <a class="cta" href="mainPage.php"><button>Logout</button></a>
+        <!-- <a class="cta" href="registerPage.php"><button>Register</button></a>
+        <a class="cta" href="signIn.php"><button>Login</button></a> -->
     </header>
     <div class="course-contents-container">
         <article class="course-intro">
@@ -688,11 +698,11 @@
         <!-- Footer legal -->
         <section class="ft-legal">
             <ul class="ft-legal-list">
-                <li><a href="terms.html#">Terms &amp; Conditions</a></li>
-                <li><a href="privacy.html#">Privacy Policy</a></li>
-                <li><a href="aboutus.html#">About Us</a></li>
-                <li><a href="contactus.html#">Help Support</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
+                <li><a href="terms.php">Terms &amp; Conditions</a></li>
+                <li><a href="privacy.php">Privacy Policy</a></li>
+                <li><a href="aboutus.php">About Us</a></li>
+                <li><a href="contactus.php">Help Support</a></li>
+                <li><a href="contactus.php">Contact</a></li>
                 <li>&copy; 2021 Learning Management System</li>
             </ul>
         </section>

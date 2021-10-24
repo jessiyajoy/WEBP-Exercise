@@ -63,16 +63,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <body>
     
     <header>
-        <a id="logo" href="mainPage.html#">LMS</a>
+        <a id="logo" href="mainPage.php">LMS</a>
         <!-- <img class="logo" src="logo.png" alt="logo"> -->
         <nav>
             <ul class="nav__links-left">
                 <!-- <li><a href="#">Home</a></li> -->
-                <li><a href="aboutus.html#">About</a></li>
-                <li><a href="contactus.html#">Contact</a></li>
+                <li><a href="aboutus.php">About</a></li>
+                <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="registerPage.php"><button>Register</button></a>
         <!-- <a class="cta" href="#"><button>Login</button></a> -->
     </header>
     
@@ -121,11 +121,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <!-- Footer legal -->
         <section class="ft-legal">
           <ul class="ft-legal-list">
-            <li><a href="terms.html#">Terms &amp; Conditions</a></li>
-            <li><a href="privacy.html#">Privacy Policy</a></li>
-            <li><a href="aboutus.html#">About Us</a></li>
-            <li><a href="contactus.html#">Help Support</a></li>
-            <li><a href="contactus.html#">Contact</a></li>
+            <li><a href="terms.php">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.php">Privacy Policy</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="contactus.php">Help Support</a></li>
+            <li><a href="contactus.php">Contact</a></li>
             <li>&copy; 2021 Learning Management System</li>
           </ul>
         </section>
