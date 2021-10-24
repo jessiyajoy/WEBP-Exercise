@@ -88,7 +88,7 @@ header{
                 <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="mainPage.php"><button>Logout</button></a>
+        <a class="cta" href="logout.php"><button>Logout</button></a>
         <!-- <a class="cta" href="registerPage.php"><button>Register</button></a>
         <a class="cta" href="signIn.php"><button>Login</button></a> -->
     </header>
