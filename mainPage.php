@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data = check_login_noSignIn($con);
+
+if($user_data == -1){
+    header("Location: mainPage.html");
+    die;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +25,7 @@
     <link rel="stylesheet" href="style/welcomePagestyle.css" />
     
 </head>
+
 <body>
     <header>
         <a id="logo" href="mainPage.php">LMS</a>

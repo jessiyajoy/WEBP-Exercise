@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data = check_login_noSignIn($con);
+
+//echo $user_data;
+if($user_data == -1){
+    header("Location: aboutus.html");
+    die;
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,13 +38,11 @@
                 <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.php"><button>Register</button></a>
-        <a class="cta" href="signIn.php"><button>Login</button></a>
-        <!-- <a class="cta" href="mainPage.html#"><button>Logout</button></a> -->
+        <!-- <a class="cta" href="registerPage.html#"><button>Register</button></a>
+        <a class="cta" href="signIn.html#"><button>Login</button></a> -->
+        <a class="cta" href="logout.php"><button>Logout</button></a>
     </header>
 
-    
-    
     <div class="container">
         <div class="about-text">
           <h2>ABOUT US</h2>

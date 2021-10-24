@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+include("connection.php");
+include("functions.php");
+
+$user_data = check_login_noSignIn($con);
+
+if($user_data == -1){
+    header("Location: terms.html");
+    die;
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +26,22 @@
     <link rel="stylesheet" href="style/termsStyle.css" />
     
 </head>
+
 <style>
-    header{
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 1px 5%; 
-      /* background-color: #2f3e60 */
-  
-      /* background-color: rgba(47,62,96,255); */
-  
-      background-color: rgba(41, 128, 185);
-      /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
-    } 
-  </style>
+  header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%; 
+    /* background-color: #2f3e60 */
+
+    /* background-color: rgba(47,62,96,255); */
+
+    background-color: rgba(41, 128, 185);
+    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
+  } 
+</style>
+
 <body>
     <header>
         <a id="logo" href="homepage.php">LMS</a>
@@ -33,8 +52,9 @@
                 <li><a href="contactus.php">Contact</a></li>
             </ul>
         </nav>
-        <a class="cta" href="registerPage.php"><button>Register</button></a>
-        <a class="cta" href="signIn.php"><button>Login</button></a>
+        <!-- <a class="cta" href="registerPage.php"><button>Register</button></a>
+        <a class="cta" href="signIn.php"><button>Login</button></a> -->
+        <a class="cta" href="logout.php"><button>Logout</button></a>
     </header>
     
     <div class="container">
@@ -49,7 +69,7 @@ or other electronic services. These TOS and the Honor Code that
 follows are agreements (the "Agreements") between you and LMS Inc. 
 By using the LMS Site, you accept and agree to be legally bound by 
 the Agreements, whether or not you are a registered user. 
-Please also read the <a href="#" class="privacy-link">Privacy Policy</a> for the LMS Site before you use 
+Please also read the <a href="privacy.php" class="privacy-link">Privacy Policy</a> for the LMS Site before you use 
 any portion of the LMS Site. The Privacy Policy describes how your 
 personal data is collected and processed when you use the LMS Site. 
 If you do not understand or do not wish to be bound by the terms of 
@@ -86,7 +106,7 @@ English language version will control if there is any conflict.
 <p>
 
     We care about the confidentiality and security of your personal information. Please see the 
-    <a href="#" class="privacy-link">Privacy Policy</a>  for more information about the collection 
+    <a href="privacy.php" class="privacy-link">Privacy Policy</a>  for more information about the collection 
     and use of data on the LMS Site.
 </p>
 <br>
