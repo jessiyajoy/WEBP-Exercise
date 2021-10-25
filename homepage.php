@@ -13,6 +13,8 @@ $user_data = check_login($con);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -30,27 +32,26 @@ $user_data = check_login($con);
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style/navBarFooter.css" />
-    <link rel="stylesheet" href="style/homepage.css">
+    
     <!-- Including jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Including our scripting file. -->
     <script type="text/javascript" src="./search_script.js"></script>
-    <title>Home Page</title>
+    <link rel="stylesheet" href="style/homepage.css">
 </head>
 <style>
   header{
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 1px 5%; 
+    padding: 1px 5%;  */
     /* background-color: #2f3e60 */
-
     /* background-color: rgba(47,62,96,255); */
-
-    background-color: rgba(41, 128, 185);
+    background-color: #172b4d
     /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
   } 
 </style>
+
 <body>
 
     <!-- nav b -->
@@ -78,10 +79,11 @@ $user_data = check_login($con);
         </div>
         <h4 id="s_results">Search Results : </h4> <br>
         <div id="search_static">
-        </div>
+        </div>  
 
-        <a class="btn btn-primary" href="user_list.php"> View registered users </a>
-        <p id="courses-title">COURSES OFFERED</p>
+        <div id="view_button" ><a class="btn btn-primary" href="user_list.php"> View registered users </a></div>
+        
+        <p class="courses-title">COURSES OFFERED</p>
 
             <!-- <p class="search-title">Search for courses</p> -->
         <!-- </div> -->
