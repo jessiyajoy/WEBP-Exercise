@@ -2,13 +2,13 @@
 
 body {
     font-family: 'Andada Pro', serif;
-    background-image: url("../resources/home1.jpg");
+    background-image: url("../resources/userlist.jpg");
 }
 
 
   /*  */
-  .user-item {
-    width: 30%;
+.user-item {
+    /* width: 30%; */
     height: 10rem;
     color:black;
     margin: 1rem;
@@ -58,7 +58,7 @@ body {
 
 #list-div {
     display: flex;
-    width: 40rem;
+    width: 50rem;
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
@@ -72,16 +72,18 @@ body {
 }
 
 #list {
-    /* max-width: 90%; */
+    max-width: 90%;
     margin: auto;
     display: grid;
-    width: 40rem;
+    /* width: 40rem; */
     column-gap: 3rem;
     row-gap: 3rem;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     text-decoration: none;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
 }
 
 @media screen and (max-width: 1350px) {
@@ -96,15 +98,12 @@ body {
     justify-content: center;
     width: 30rem;
     font-family: 'Andada Pro', serif;
-    /* color: white; */
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-left: 45rem;
+    color: rgb(19, 101, 173);
+    margin: auto;
     /* align-self: center; */
-    padding-top: 5rem;
+    padding-top: 3rem;
     border: none;
-    /* background-color: #2247ac; */
-    /* padding: 0.8rem; */
-    border-radius: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }

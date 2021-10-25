@@ -19,7 +19,7 @@
 ?>
             </h4>
             <span class="text-success">●</span>
-            <small>Online</small>
+            <small>LMS User</small>
         </div>
         <div class="col ml--2">
             <h5>
