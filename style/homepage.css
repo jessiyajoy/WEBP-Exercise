@@ -5,8 +5,20 @@
 body {
     /* background: rgb(240, 236, 236); */
     font-family: 'Open Sans', sans-serif;
-    background-image: url("../resources/userlist.jpg");
+    background-image: url("../resources/userlist.png");
+    background: linear-gradient(80deg, #bcd1f3 0, #e6c3c3 80%)
 }
+
+header{
+    /* display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1px 5%;  */
+    /* background-color: #2f3e60 */
+    /* background-color: rgba(47,62,96,255); */
+    background-color: #172b4d
+    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
+  } 
 
 .header-section {
     font-family: 'Andada Pro', serif;
@@ -93,8 +105,9 @@ body {
     font-size: 25px;
     font-weight: 500;
     align-self: flex-start;
-    margin-top: 5rem;
-    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-left: 5.5rem;
+    /* color: wheat; */
 }
 
 /* COURSE CATEGORIES */
@@ -123,7 +136,7 @@ input[type="radio"] {
 :root {
     --black: #1a1a1a;
     --white: #fff;
-    --grape-red: rgba(102, 138, 206, 0.972);
+    --grape-red: rgba(49, 87, 156, 0.972);
 }
 
 .filters {
@@ -455,4 +468,5 @@ div .course-category button:hover {
 
 #view_button {
     margin-top: 6rem;
+    margin-bottom: 6rem;
 }
