@@ -18,9 +18,6 @@ $user_data = check_login($con);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Favicon -->
-    <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
@@ -38,19 +35,9 @@ $user_data = check_login($con);
     <!-- Including our scripting file. -->
     <script type="text/javascript" src="./search_script.js"></script>
     <link rel="stylesheet" href="style/homepage.css">
+    
 </head>
-<style>
-  header{
-    /* display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1px 5%;  */
-    /* background-color: #2f3e60 */
-    /* background-color: rgba(47,62,96,255); */
-    background-color: #172b4d
-    /* background: linear-gradient(87deg, #172b4d 0, #1a174d 80%)*/
-  } 
-</style>
+
 
 <body>
 
