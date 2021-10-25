@@ -61,11 +61,17 @@
         <div class="row">
           <div class="col-lg-7 col-md-10">
             <?php
-            echo "<h1 class=\"display-2 text-white\">Hi there! Meet ", $_GET['user_name'], "</h1>";
-            ?>
-            <p class="text-white mt-0 mb-5"> This page displays information made public by the user. 
+            if ($_GET['user_name'] === $user_data['user_name'] ) {
+              echo "<h1 class=\"display-2 text-white\">Welcome, ", $_GET['user_name'], "!</h1>";
+              echo "<p class=\"text-white mt-0 mb-5\"> This page displays information that is publicly available to any LMS user who visits your profile. 
+              Please note that other users may try to connect to you using the contact details displayed in the page. </p>";
+            } else {
+              echo "<h1 class=\"display-2 text-white\">Hi there! Meet ", $_GET['user_name'], "</h1>";
+              echo "<p class=\"text-white mt-0 mb-5\"> This page displays information made public by the user. 
               For more information about the user or for any queries, connect using the contact details given in the page.
-            </p>
+              </p>";
+            }
+            ?>
             <a href="homepage.php" class="btn btn-info">Back to Home Page</a>
           </div>
         </div>
@@ -96,11 +102,72 @@
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">10</span>
+                      <?php
+                        $count = 0;
+                        $completed = 0;
+                        $query = "SELECT * FROM EnrolledStudentsHTML WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+
+                        $query = "SELECT * FROM EnrolledStudentsCSS WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+
+                        $query = "SELECT * FROM EnrolledStudentsAJAX WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+
+                        $query = "SELECT * FROM EnrolledStudentsJAVA WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+
+                        $query = "SELECT * FROM EnrolledStudentsJS WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+
+                        $query = "SELECT * FROM EnrolledStudentsPYTHON WHERE user_id = '{$_GET['user_id']}%'";
+                        $result = mysqli_query($con, $query);
+                        if ($result->num_rows > 0) {
+                          $row = $result->fetch_assoc();
+                          $completed += $row['completed'];
+                          $count++;
+                          // echo $count;
+                        } 
+                        
+                        echo "<span class=\"heading\">", $count, "</span>";
+                      ?>
+                      
                       <span class="description">Courses enrolled</span>
                     </div>
                     <div>
-                      <span class="heading">4</span>
+                      <?php
+                        echo "<span class=\"heading\">", $completed, "</span>";
+                      ?>
                       <span class="description">Courses completed</span>
                     </div>
                   </div>
