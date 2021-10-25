@@ -58,7 +58,7 @@ body {
 
 #list-div {
     display: flex;
-    width: 50rem;
+    width: 42rem;
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
