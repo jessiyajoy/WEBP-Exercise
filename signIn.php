@@ -4,6 +4,8 @@ session_start();
 include("connection.php");
 include("functions.php");
 
+$genErr ="";
+
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     //name, email, password, confirm-password
@@ -12,8 +14,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     //echo $_POST['password'];
     //echo $_POST['email'];
-
-    $genErr ="";
 
     if(!empty($email) && !empty($pass))
     {
