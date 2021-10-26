@@ -5,8 +5,8 @@
 body {
     /* background: rgb(240, 236, 236); */
     font-family: 'Open Sans', sans-serif;
-    background-image: url("../resources/userlist.png");
-    background: linear-gradient(80deg, #bcd1f3 0, #e6c3c3 80%)
+    /* background-image: url("../resources/userlist.png"); */
+    background: linear-gradient(180deg, #84ccff 0, #ffe3e6 80%);
 }
 
 header{

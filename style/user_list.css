@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Andada Pro', serif;
-    background-image: url("../resources/userlist.jpg");
+    /* background-image: url("../resources/userlist.png"); */
+    background: linear-gradient(170deg, #79c7fb 0, #eea3ad 80%);
 }
 
 
